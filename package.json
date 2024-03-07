@@ -1,0 +1,42 @@
+{
+  "name": "time-tracker",
+  "description": "Work time logger for AgileBoard",
+  "private": true,
+  "scripts": {
+    "start": "cd angular && npm ci && cd ../electron && npm ci && cd ../cordova && npm ci",
+    "start:serve": "npm-run-all -p electron:serve start:angular:serve:electron",
+    "start:angular:serve:electron": "cd angular && npm run start:electron",
+    "electron": "cd angular && npm run electron",
+    "electron:serve": "wait-on tcp:4200 && cd electron && npm run electron:serve",
+    "cordova": "cd angular && npm run cordova",
+    "build:android": "cd angular && npm run build:cordova && cd ../cordova && npm run build:android",
+    "build:linux": "cd angular && npm run build:electron:prod && cd ../electron && npm run make-linux",
+    "build:windows": "cd angular && npm run build:electron:prod && cd ../electron && npm run build-windows",
+    "build:mac": "cd angular && npm run build:electron-prod && cd ../electron && npm run make-mac",
+    "mock:concat": "node \"./mocks/concat-json.js\"",
+    "apimock": "npm run mock:concat && node \"./mocks/server.js\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://robert_u_devpark@bitbucket.org/devpark/ab-time-logger.git"
+  },
+  "keywords": [
+    "time-logger",
+    "time-tracker",
+    "agile-board"
+  ],
+  "author": "DevPark",
+  "license": "UNLICENSED",
+  "homepage": "https://bitbucket.org/devpark/ab-time-logger#readme",
+  "dependencies": {
+    "cookie-parser": "^1.4.5",
+    "json-concat": "0.0.1",
+    "json-server": "0.16.3",
+    "jsonwebtoken": "^8.5.1",
+    "path": "0.12.7"
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.1.5",
+    "wait-on": "^6.0.1"
+  }
+}

@@ -1,0 +1,9 @@
+<app-desktop-idle-dialog *ngIf="environment.electron"></app-desktop-idle-dialog>
+<app-desktop-deps-dialog *ngIf="environment.electron"></app-desktop-deps-dialog>
+
+<toaster-container></toaster-container>
+
+
+<div class="wrapper theme-wrapper page-bg" [class]="(theme$ | async)">
+  <router-outlet></router-outlet>
+</div>

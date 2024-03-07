@@ -1,0 +1,44 @@
+.w-12 {
+  width: 100%;
+}
+
+// position
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+
+// display
+.flex {
+  display: flex;
+}
+.block {
+  display: block;
+}
+.inline {
+  display: inline;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.inline-block {
+  display: inline-block;
+}
+.hide {
+  display: none !important;
+}
+
+.center-y {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+.pointer {
+  cursor: pointer;
+}

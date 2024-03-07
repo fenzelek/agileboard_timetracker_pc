@@ -1,0 +1,310 @@
+// /**
+//   * Outline form field type modifications
+// */
+
+// /** Smaller paddings - start **/
+// // To change the vertical padding change this $size value only
+// // The rest of styles will compute automatically
+// $size: 0.6em; // 1em - default;
+
+// // Applies a floating label above the form field control itself.
+// @mixin _mat-form-field-outline-label-floating($font-scale, $infix-padding, $infix-margin-top) {
+//   transform: translateY(-$infix-margin-top - $infix-padding + $mat-form-field-outline-dedupe) scale($font-scale);
+//   width: 100% / $font-scale + $mat-form-field-outline-dedupe;
+
+//   $mat-form-field-outline-dedupe: $mat-form-field-outline-dedupe + 0.00001 !global;
+// }
+
+// // The unit-less line-height from the font config.
+// $line-height: 1.125; // default
+// // The amount to scale the font for the floating label and subscript.
+// $subscript-font-scale: 0.75; // default
+// // The amount of space between the top of the line and the top of the actual text
+// // (as a fraction of the font-size).
+// $line-spacing: ($line-height - 1) / 2;
+// // The padding above and below the infix.
+// $infix-padding: $size; // <- changed (1em)
+// // The margin applied to the form-field-infix to reserve space for the floating label.
+// $infix-margin-top: $size * $line-height * $subscript-font-scale; // <- changed (0.5em)
+// // The space between the bottom of the .mat-form-field-flex area and the subscript wrapper.
+// // Mocks show half of the text size, but this margin is applied to an element with the subscript
+// // text font size, so we need to divide by the scale factor to make it half of the original text
+// // size. We again need to subtract off the line spacing since the mocks measure to the edge of the
+// // text, not the  edge of the line.
+// $subscript-margin-top: ($size / 2) / $subscript-font-scale - ($line-spacing * 2); // <- changed (0.5em)
+// // The padding applied to the form-field-wrapper to reserve space for the subscript, since it's
+// // absolutely positioned. This is a combination of the subscript's margin and line-height, but we
+// // need to multiply by the subscript font scale factor since the wrapper has a larger font size.
+// $wrapper-padding-bottom: ($subscript-margin-top + $line-height) * $subscript-font-scale;
+// // The amount we offset the label from the input text in the outline appearance.
+// $outline-appearance-label-offset: -($size * 0.4); // <- changed (0.25)
+
+// .mat-form-field-appearance-outline {
+//   font-size: 1.1em;
+
+//   .mat-form-field-infix {
+//     padding: $infix-padding 0 $infix-padding 0;
+//     input {
+//       margin-bottom: 4px;
+//     }
+//   }
+
+//   .mat-form-field-label {
+//     top: $infix-margin-top + $infix-padding;
+//     margin-top: $outline-appearance-label-offset;
+//     margin-left: 5px;
+//   }
+
+//   &.mat-form-field-can-float {
+//     &.mat-form-field-should-float .mat-form-field-label,
+//     .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label {
+//       @include _mat-form-field-outline-label-floating(
+//         $subscript-font-scale,
+//         $infix-padding + $outline-appearance-label-offset,
+//         $infix-margin-top
+//       );
+//     }
+
+//     // Server-side rendered matInput with a label attribute but label not shown
+//     // (used as a pure CSS stand-in for mat-form-field-should-float).
+//     .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper .mat-form-field-label {
+//       @include _mat-form-field-outline-label-floating(
+//         $subscript-font-scale,
+//         $infix-padding + $outline-appearance-label-offset,
+//         $infix-margin-top
+//       );
+//     }
+//   }
+
+//   .mat-form-field-label-wrapper {
+//     top: -$infix-margin-top;
+//     padding-top: $infix-margin-top;
+//   }
+
+//   .mat-form-field-infix {
+//     padding: $infix-padding 5px;
+//     // Throws off the baseline if we do it as a real margin, so we do it as a border instead.
+//     border-top: $infix-margin-top solid transparent;
+//   }
+//   .mat-select-arrow-wrapper {
+//     // Mat select arrow vertical position fix
+//     transform: none !important;
+//   }
+//   // Suffix & Prefix vertical position fix
+//   & .mat-form-field-prefix,
+//   & .mat-form-field-suffix {
+//     top: $outline-appearance-label-offset !important;
+
+//     .mat-datepicker-toggle {
+//       position: relative;
+//       top: 0.4em;
+//     }
+//   }
+// }
+// .mat-form-field-appearance-fill {
+//   font-size: 1.1em;
+
+//   .mat-form-field-flex {
+//     padding: 0em 0.75em 0 0.75em !important;
+//   }
+
+//   .mat-form-field-infix {
+//     padding: $infix-padding 0 $infix-padding 0;
+//     input {
+//       margin-bottom: 4px;
+//     }
+//   }
+
+//   .mat-form-field-label {
+//     top: $infix-margin-top + $infix-padding;
+//     margin-top: -1px;
+//     margin-left: 5px;
+//   }
+
+//   &.mat-form-field-can-float {
+//     &.mat-form-field-should-float .mat-form-field-label,
+//     .mat-input-server:focus + .mat-form-field-label-wrapper .mat-form-field-label {
+//       @include _mat-form-field-outline-label-floating(
+//         $subscript-font-scale,
+//         $infix-padding + $outline-appearance-label-offset,
+//         $infix-margin-top
+//       );
+//     }
+
+//     // Server-side rendered matInput with a label attribute but label not shown
+//     // (used as a pure CSS stand-in for mat-form-field-should-float).
+//     .mat-input-server[label]:not(:label-shown) + .mat-form-field-label-wrapper .mat-form-field-label {
+//       @include _mat-form-field-outline-label-floating(
+//         $subscript-font-scale,
+//         $infix-padding + $outline-appearance-label-offset,
+//         $infix-margin-top
+//       );
+//     }
+//   }
+
+//   .mat-form-field-label-wrapper {
+//     top: -$infix-margin-top;
+//     padding-top: $infix-margin-top;
+//   }
+
+//   .mat-form-field-infix {
+//     padding: $infix-padding 5px;
+//     // Throws off the baseline if we do it as a real margin, so we do it as a border instead.
+//     border-top: $infix-margin-top solid transparent;
+//   }
+//   .mat-select-arrow-wrapper {
+//     // Mat select arrow vertical position fix
+//     transform: none !important;
+//   }
+//   // Suffix & Prefix vertical position fix
+//   & .mat-form-field-prefix,
+//   & .mat-form-field-suffix {
+//     top: $outline-appearance-label-offset !important;
+//     position: static;
+
+//     .mat-datepicker-toggle {
+//       position: relative;
+//       top: 0.4em;
+//     }
+//   }
+// }
+// /** Smaller paddings - end **/
+
+// /** No wrapper (bottom spacing for hint / errors) - start **/
+// .mat-form-field-appearance-outline {
+//   .mat-form-field-wrapper {
+//     padding-bottom: 5px !important;
+//     margin: 0.6rem 0 !important;
+//   }
+
+//   .mat-form-field-subscript-wrapper {
+//     padding-top: 1em !important;
+//     margin-top: $subscript-margin-top;
+//     // We want the subscript to start at the end of the content box, not the padding box,
+//     // so we move it up by the padding amount (adjusted for the smaller font size);
+//     top: calc(100% - #{$wrapper-padding-bottom / $subscript-font-scale});
+//   }
+
+//   &.no-wrapper .mat-form-field-wrapper {
+//     margin: 0 !important;
+//   }
+// }
+
+// .mat-form-field-appearance-fill {
+//   .mat-form-field-wrapper {
+//     padding-bottom: 5px !important;
+//     margin: 0.6rem 0 !important;
+//   }
+
+//   .mat-form-field-subscript-wrapper {
+//     padding-top: 1em !important;
+//     margin-top: $subscript-margin-top;
+//     // We want the subscript to start at the end of the content box, not the padding box,
+//     // so we move it up by the padding amount (adjusted for the smaller font size);
+//     top: calc(100% - #{$wrapper-padding-bottom / $subscript-font-scale});
+//   }
+//   .mat-form-field-wrapper {
+//     padding-bottom: 0px !important;
+//     .mat-form-field-underline {
+//       bottom: 0 !important;
+//     }
+//   }
+//   .no-wrapper .mat-form-field-wrapper {
+//     margin: 0 !important;
+//   }
+// }
+// /** No wrapper (bottom spacing for hint / errors) - end **/
+
+// .form-title {
+//   font-size: 1.16rem;
+//   font-weight: 700;
+//   text-transform: uppercase;
+//   opacity: 0.6;
+//   margin-top: 1.6rem;
+// }
+
+// .form-actions {
+//   margin-top: 1.6rem;
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: flex-end;
+// }
+
+.mat-form-field-appearance-fill.height-sm {
+  font-size: 0.84rem;
+}
+
+.mat-form-field-appearance-fill.no-wrapper {
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+    .mat-form-field-underline {
+      bottom: 0 !important;
+    }
+  }
+}
+
+.mat-form-field-appearance-fill.rounded {
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+    .mat-form-field-flex {
+      border-radius: 40px !important;
+    }
+    .mat-form-field-underline {
+      width: 0;
+      bottom: 0 !important;
+    }
+  }
+}
+
+.mat-form-field-appearance-fill {
+  .mat-form-field-wrapper {
+    .mat-form-field-flex {
+      background-color: rgba(0, 0, 0, 0.1) !important;
+      .mat-form-field-prefix {
+        margin-right: 8px;
+      }
+    }
+    .mat-form-field-subscript-wrapper {
+      margin-top: 4px;
+    }
+  }
+}
+
+.mat-form-field-appearance-fill.rounded-sm {
+  .mat-form-field-wrapper {
+    // padding-bottom: 0 !important;
+
+    .mat-form-field-flex {
+      border-radius: 4px !important;
+    }
+    .mat-form-field-underline {
+      width: 0;
+      bottom: 0 !important;
+    }
+  }
+}
+
+.mat-form-field-appearance-fill {
+  .mat-form-field-wrapper {
+    .mat-form-field-prefix {
+      display: flex;
+      align-self: flex-start;
+      margin-top: -2px;
+    }
+    .mat-form-field-suffix {
+      display: flex;
+      align-self: flex-start;
+      margin-top: -2px;
+    }
+  }
+}
+
+.dark-v2-theme .mat-form-field.mat-focused .mat-form-field-label,
+.dark-theme .mat-form-field.mat-focused .mat-form-field-label {
+  color: #42b0a4 !important;
+}
+
+.default-theme .mat-form-field.mat-focused .mat-form-field-label {
+  color: #42b0a4 !important;
+}

@@ -1,0 +1,150 @@
+@import "../../../../styles/variables.scss";
+
+.toolbar {
+  display: flex;
+  position: fixed !important;
+  top: 0;
+  right: 0;
+  z-index: 1000;
+  width: 100%;
+
+  .buttons > {
+    button, mat-select {
+      margin-left: 14px;
+    }
+  }
+
+  .aButton {
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.4);
+    margin-top: 3px;
+
+    & ::ng-deep fa-icon {
+      color: #42b0a4;
+    }
+  }
+
+  .toolbar-title {
+    color: white;
+    margin: auto;
+    margin-left: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .toolbar-title-logo {
+      height: 42px;
+      margin-right: 8px;
+    }
+  }
+
+  .nav-button {
+    margin: 0 10px 0 0;
+  }
+
+  .mat-icon-button fa-icon {
+    font-size: 20px;
+  }
+
+  .mat-stroked-button {
+    margin-right: 10px;
+  }
+
+  .language-button {
+    width: 70px;
+    height: 37px;
+    font-size: 14px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 3px;
+    border-radius: 4px !important;
+    transition: 0.5s all;
+    border-radius: 30px;
+  }
+
+  @media screen and (max-width: 800px) {
+    mat-select {
+      height: 35px;
+    }
+  }
+
+  @media (max-width: map-get($grid-breakpoints, lg)) {
+    .nav-button {
+      min-width: 0;
+      padding: 0 10px;
+    }
+  }
+}
+
+
+.user-button {
+  font-weight: 600;
+  border-radius: 8px;
+  transition: 0.5s all;
+  padding: 0 !important;
+  height: 37px !important;
+
+  ::ng-deep .mat-button-wrapper {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+  }
+
+  .avatar {
+    border-radius: 5px;
+    width: 26px;
+    height: 26px;
+  }
+
+  .name {
+    margin-right: 5px;
+  }
+}
+
+
+::ng-deep .user-dropdown {
+  margin-top: 12px;
+
+  .user-dropdown-menu-item {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+
+    app-custom-svg > div {
+      display: flex;
+    }
+
+    .user-dropdown-menu-item-icon {
+      font-size: 17px;
+      margin-right: 8px;
+      width: 22px;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .mat-menu-content {
+    padding-left: 8px;
+    padding-right: 8px;
+
+    .mat-menu-item {
+      transition: 0.5s all;
+      border-radius: 5px;
+    }
+  }
+}
+
+.language-select-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  img {
+    height: 15px;
+    width: auto;
+    margin-right: 10px;
+    border-radius: 4px;
+  }
+}
+
+

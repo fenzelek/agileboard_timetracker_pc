@@ -1,0 +1,53 @@
+#mobile-carousel {
+
+  .mobile-carousel__content {
+    height: calc(100% - 60px);
+    overflow: auto;
+  }
+
+  .mobile-carousel__menu {
+    height: 60px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 8px;
+    .mobile-carousel-button-bg {
+      min-width: 48%;
+      text-align: center;
+      line-height: 43px;
+      border-radius: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 13px;
+      text-transform: none !important;
+      span {
+        margin: 3px;
+      }
+    }
+  }
+  .mobile-carousel__menu-player-state {
+    background: #42B0A4;
+    .mobile-carousel-button-bg {
+      background: rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      color: white;
+      path {
+        fill: white;
+      }
+    }
+  }
+
+  ::ng-deep {
+    .mat-dialog-container {
+      padding: 0;
+    }
+  }
+
+}
+
+::ng-deep {
+  .mat-dialog-container {
+    padding: 0 !important;
+  }
+}

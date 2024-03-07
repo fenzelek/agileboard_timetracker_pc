@@ -1,0 +1,15 @@
+{
+  "current_user": {
+    "id": 196,
+    "email": "igor.s@devpark.pl",
+    "first_name": "Igor",
+    "last_name": "Sowi\u0144ski",
+    "avatar": "1556007194_196.jpg",
+    "activated": true,
+    "deleted": false,
+    "selected_user_company": {
+      "data": null
+    },
+    "role": "system_user"
+  }
+}

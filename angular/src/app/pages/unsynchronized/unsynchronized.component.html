@@ -1,0 +1,83 @@
+<app-desktop-toolbar *ngIf="!isMobile"></app-desktop-toolbar>
+<app-mobile-toolbar *ngIf="isMobile"></app-mobile-toolbar>
+
+<section fxFlex="grow" class="wrap container main-content" [ngClass]="{ mobile: isMobile }">
+  <!-- close btn -->
+  <button class="close-btn" mat-icon-button matTooltip="{{ 'tt.close' | translate }}" [matTooltipPosition]="'before'"
+    (click)="close()" (window:keyup)="close($event)">
+    <fa-icon icon="times" color="primary" size="3x"></fa-icon>
+  </button>
+
+  <!-- task list table -->
+
+  <div *ngIf="pageData" class="unsync-task-box task-list-wrapper">
+    <table mat-table [dataSource]="pageData">
+
+      <!-- ticket name -->
+      <ng-container matColumnDef="taskName">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ 'tt.unsync.ticket-name' | translate }}
+        </th>
+        <td mat-cell *matCellDef="let task">{{ task.taskName }}</td>
+      </ng-container>
+
+      <!-- project name -->
+      <ng-container matColumnDef="projectName">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ 'tt.unsync.project-name' | translate }}
+        </th>
+        <td mat-cell *matCellDef="let task">{{ task.projectName }}</td>
+      </ng-container>
+
+      <!-- date -->
+      <ng-container matColumnDef="date">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ 'tt.date' | translate }}
+        </th>
+        <td mat-cell *matCellDef="let task">{{ getDate(task.from).toLocaleDateString() }}</td>
+      </ng-container>
+
+      <!-- from -->
+      <ng-container matColumnDef="from">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ 'tt.unsync.from' | translate }}
+        </th>
+        <td mat-cell *matCellDef="let task">{{ getDate(task.from).toLocaleTimeString() }}</td>
+      </ng-container>
+
+      <!-- to -->
+      <ng-container matColumnDef="to">
+        <th mat-header-cell *matHeaderCellDef>
+          {{ 'tt.unsync.to' | translate }}
+        </th>
+        <td mat-cell *matCellDef="let task">{{ getDate(task.to).toLocaleTimeString() }}</td>
+      </ng-container>
+
+      <!-- dispose -->
+      <ng-container matColumnDef="dispose">
+        <th mat-header-cell *matHeaderCellDef>
+          <!-- dispose all button -->
+          <button mat-icon-button color="primary" (click)="onRemoveAll()">
+            <fa-icon [icon]="'trash'" color="primary" size="lg"></fa-icon>
+          </button>
+        </th>
+        <td mat-cell *matCellDef="let task" class="buttons">
+          <!-- dispose button -->
+          <button mat-icon-button color="primary" (click)="onRemove(task)">
+            <fa-icon [icon]="'trash'" color="primary" size="lg"></fa-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let task; columns: displayedColumns;"></tr>
+    </table>
+  </div>
+
+  <!-- pagination -->
+  <div *ngIf="pageData.length" class="paginator-box">
+    <mat-paginator [pageSizeOptions]="[10, 15, 20, 50]" [length]="allDataLength" [pageIndex]="pageIndex"
+      [pageSize]="pageSize" (page)="changePage($event); taskListWrapperScrollTop();"></mat-paginator>
+  </div>
+
+</section>

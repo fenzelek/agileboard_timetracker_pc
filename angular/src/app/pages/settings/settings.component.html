@@ -1,0 +1,97 @@
+<app-desktop-toolbar *ngIf="!isMobile"></app-desktop-toolbar>
+<app-mobile-toolbar *ngIf="isMobile"></app-mobile-toolbar>
+
+<section fxFlex="grow" class="wrap container main-content" [ngClass]="{ mobile: isMobile }">
+  <!-- close btn -->
+  <button class="close-btn" mat-icon-button matTooltip="{{ 'tt.close' | translate }}" [matTooltipPosition]="'before'"
+          (click)="close()" (window:keyup)="close($event)">
+    <fa-icon icon="times" color="primary" size="3x"></fa-icon>
+  </button>
+
+  <ng-container *ngIf="settings$ | async as settings">
+    <section>
+
+      <div fxFlex.xs="100%" fxFlex.gt-xs="50%" class="group" [ngClass]="routeAnimationsElements">
+
+        <!-- general -->
+        <h2>{{ 'tt.settings.general.title' | translate }}</h2>
+        
+        <!-- language -->
+        <div class="icon-form-field">
+          <mat-icon color="primary">
+            <fa-icon icon="language" color="primary"></fa-icon>
+          </mat-icon>
+          <mat-form-field>
+            <mat-label>{{ 'tt.settings.general.language' | translate }}</mat-label>
+            <mat-select [ngModel]="settings.language"
+                        (selectionChange)="onLanguageSelect($event)"
+                        name="language">
+              <mat-option *ngFor="let l of languages" [value]="l.value">
+                {{ 'tt.settings.general.language.' + l.label | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+
+        <!-- open company if only one -->
+        <div class="icon-form-field">
+          <mat-icon color="primary">
+            <fa-icon icon="sign-in-alt" color="primary"></fa-icon>
+          </mat-icon>
+          <mat-placeholder>{{ 'tt.settings.general.open-company-if-only-one' | translate }}</mat-placeholder>
+          <mat-slide-toggle
+            color="primary"
+            [checked]="settings.openCompanyIfOnlyOne"
+            (change)="onOpenCompanyIfOnlyOneChange($event)">
+          </mat-slide-toggle>
+        </div>
+
+        <!-- cache -->
+        <div class="icon-form-field">
+          <mat-icon color="primary">
+            <fa-icon icon="database" color="primary"></fa-icon>
+          </mat-icon>
+          <mat-placeholder>
+            <span>{{ 'tt.settings.general.cache' | translate }}</span>
+            <span class="ml-2">({{ dbUsage }} / {{ dbQuota }})</span>
+          </mat-placeholder>
+          <button mat-stroked-button (click)="clearCache()">{{ 'tt.clear' | translate }}</button>
+        </div>
+      </div>
+
+      <!-- color theme -->
+      <div fxFlex.xs="100%" fxFlex.gt-xs="50%" class="group" [ngClass]="routeAnimationsElements">
+        <h2>{{ 'tt.settings.themes.title' | translate }}</h2>
+        <div class="icon-form-field">
+          <mat-icon color="primary">
+            <fa-icon icon="paint-brush" color="primary"></fa-icon>
+          </mat-icon>
+          <mat-form-field>
+            <mat-label>{{ 'tt.settings.themes.theme-color' | translate }}</mat-label>
+            <mat-select [ngModel]="settings.theme"
+                        (selectionChange)="onThemeSelect($event)"
+                        name="themes">
+              <mat-option *ngFor="let t of themes" [value]="t.value">
+                {{ 'tt.settings.themes.' + t.label | translate }}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+        </div>
+        <!-- todo: auto night mode -->
+        <!-- <div class="icon-form-field">
+          <mat-icon color="primary">
+            <fa-icon icon="lightbulb" color="primary"></fa-icon>
+          </mat-icon>
+          <mat-placeholder>{{ 'tt.settings.themes.night-mode' | translate }}
+          </mat-placeholder>
+          <mat-slide-toggle
+            color="primary"
+            [checked]="settings.autoNightMode"
+            (change)="onAutoNightModeToggle($event)">
+          </mat-slide-toggle>
+        </div> -->
+      </div>
+
+    </section>
+  </ng-container>
+</section>

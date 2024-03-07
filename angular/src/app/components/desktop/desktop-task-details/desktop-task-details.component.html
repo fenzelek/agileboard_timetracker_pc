@@ -1,0 +1,91 @@
+<div *ngIf="task" class="host" [ngClass]="{ 'pt': taskDetailsPosition === 'right' }">
+
+  <!-- top bar -->
+  <div class="top-bar">
+
+    <!-- task title -->
+    <div style="display: flex">
+      <div>{{ task.data.title }} {{ task.data.name }}</div>
+      <app-custom-svg *ngIf="loading" svg="spinner" width="16" height="16" stroke="currentColor" fill="none"></app-custom-svg>
+    </div>
+
+    <!-- buttons -->
+    <div class="buttons">
+      <!-- change position button -->
+      <button (click)="toggleTaskDetailsPosition()" mat-icon-button [matTooltip]="('tt.button.task-details-current-' + taskDetailsPosition) | translate"
+        [matTooltipPosition]="'below'">
+        <mat-icon *ngIf="taskDetailsPosition === 'right'">keyboard_double_arrow_down</mat-icon>
+        <mat-icon *ngIf="taskDetailsPosition === 'bottom'">keyboard_double_arrow_right</mat-icon>
+      </button>
+
+      <!-- close button -->
+      <button (click)="close()" mat-icon-button matTooltip="{{ 'tt.close' | translate }}" style="margin-left: 4px"
+        [matTooltipPosition]="'before'">
+        <mat-icon>close</mat-icon>
+      </button>
+    </div>
+
+  </div>
+
+  <!-- two columns -->
+  <div class="row main max-width">
+    <!-- left column -->
+    <div class="col col-1/2">
+      <!-- status -->
+      <div class="row padding-main">
+        <div class="col label">{{ 'tt.tasks.status' | translate }}</div>
+        <div class="col value">{{ getStatusName(task.data) }}</div>
+      </div>
+
+      <!-- sprint -->
+      <div class="row padding-main">
+        <div class="col label">{{ 'tt.tasks.sprint' | translate }}</div>
+        <div class="col value">{{ getSprintName() }}</div>
+      </div>
+
+      <!-- assigned -->
+      <div class="row padding-main">
+        <div class="col label">{{ 'tt.tasks.assigned' | translate }}</div>
+        <div class="col value">{{ task.data.assigned }}</div>
+      </div>
+
+      <!-- reporter -->
+      <div class="row padding-main">
+        <div class="col label">{{ 'tt.tasks.reporter' | translate }}</div>
+        <div class="col value">{{ task.details?.reporting_user.data?.first_name }} {{
+          task.details?.reporting_user.data?.last_name }}</div>
+      </div>
+
+    </div>
+
+    <!-- right column -->
+    <div class="col col-1/2">
+      <!-- estimation -->
+      <div class="row padding-main">
+        <div class="col label">{{ 'tt.tasks.estimation' | translate }}</div>
+        <div class="col value">{{ task.details?.estimate_time | time: 'h:mm' }}</div>
+      </div>
+
+      <!-- time - user -->
+      <div class="row padding-main">
+        <div class="col label">{{ 'tt.tasks.my-time' | translate }}</div>
+        <div class="col value">{{ time | time: 'h:mm' }}</div>
+      </div>
+
+      <!-- time - full -->
+      <div class="row padding-main">
+        <div class="col label">{{ 'tt.tasks.all-time' | translate }}</div>
+        <div class="col value">{{ task.details?.stats?.data.tracked_summary | time: 'h:mm' }}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- description -->
+  <div class="description padding-main max-width">
+    <div class="label">{{ 'tt.tasks.description' | translate }}</div>
+    <div class="value" *ngIf="task.details">
+      <cng-html-compiler [template]="description" [componentClass]="descriptionHandlerComponent"></cng-html-compiler>
+    </div>
+  </div>
+
+</div>

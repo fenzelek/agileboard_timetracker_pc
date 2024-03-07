@@ -1,0 +1,12 @@
+.loader {
+  margin-top: 15px;
+
+  & > span {
+    margin-right: 10px
+  }
+  ::ng-deep {
+    & > app-custom-svg {
+      display: inline-block
+    }
+  }
+}

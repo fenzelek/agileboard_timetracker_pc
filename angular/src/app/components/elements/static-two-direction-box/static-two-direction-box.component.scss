@@ -1,0 +1,26 @@
+span {
+  display: flex;
+  border-radius: 4px;
+  background-color: white;
+  border: 1px solid #E5E5E5;
+  min-height: 48px;
+  font-weight: 400;
+  font-size: 12px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  padding: 0 10px 0 10px;
+  div:nth-child(2) {
+    font-weight: 800;
+  }
+}
+.box-row {
+  flex-direction: row;
+  justify-content: space-between;
+  line-height: 48px;
+}
+.box-coll {
+  flex-direction: column;
+  justify-content: center;
+  line-height: 26px;
+  align-items: center;
+  padding: 8px;
+}

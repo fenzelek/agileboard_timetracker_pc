@@ -1,0 +1,46 @@
+@import "~@angular/material/theming";
+
+@mixin dtm-menu-panel-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $colors: map-get($theme, colors);
+  $elements: map-get($theme, elements);
+
+  .mat-menu-panel {
+    background: map-get($elements, select-panel-bg);
+
+    .mat-menu-content {
+      padding-left: 8px;
+      padding-right: 8px;
+
+      .mat-menu-item {
+        transition: 0.2s all;
+        border-radius: 5px;
+        margin-top: 1px;
+        margin-bottom: 1px;
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        align-items: center;
+
+        .menu__item--icon {
+          font-size: 17px;
+          margin-right: 8px;
+          width: 22px;
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .menu__item--text {
+          font-weight: inherit;
+        }
+      }
+    }
+
+    .mat-menu-item:hover {
+      background: map-get($elements, select-panel-option-active-bg);
+    }
+  }
+}

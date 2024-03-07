@@ -1,0 +1,49 @@
+<div id="mobile-without-tasks-box" class="p-5">
+
+  <div mat-dialog-title>{{ 'tt.mobile.tasks.new.task' | translate }}</div>
+
+  <div [formGroup]="form">
+
+    <!-- name -->
+    <mat-form-field class="no-padding-in-mat-form rounded-sm height-sm" appearance="fill">
+      <mat-label>
+        {{ 'tt.tasks.create.title' | translate }}
+      </mat-label>
+      <textarea matInput
+                cdkTextareaAutosize
+                #autosize="cdkTextareaAutosize"
+                maxlength="255"
+                cdkAutosizeMinRows="1" type="email" formControlName="name"
+                class="w-12"
+      ></textarea>
+    </mat-form-field>
+
+    <!-- sprint -->
+    <mat-form-field class="no-padding-in-mat-form rounded-sm height-sm" appearance="fill">
+      <mat-label>
+        {{ 'tt.tasks.create.sprint.select' | translate }}
+      </mat-label>
+      <mat-select formControlName="sprint_id">
+        <mat-option>{{ 'tt.none' | translate}}</mat-option>
+        <mat-option [value]="sprint.id" *ngFor="let sprint of sprints">{{ sprint.name }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- buttons -->
+    <div class="buttons">
+      <!-- create -->
+      <button class="mobile-entity-top-box pr-7" [disabled]="loading || (offlineMode$ | async)" mat-button (click)="create()">
+        <span class="mr-2">{{ 'tt.tasks.create' | translate }}</span>
+        <fa-icon *ngIf="!loading" class="absolute center-v" style="right: 10px" icon="plus" transform="grow-6" size="xs"></fa-icon>
+        <app-spinner [width]="18" [height]="18" [styleClass]="'absolute center-y'" [styleCss]="'right: 5px'" *ngIf="loading"></app-spinner>
+      </button>
+
+      <!-- start -->
+      <button *ngIf="task" class="mobile-entity-top-box" mat-button (click)="start()">
+        <span class="mr-2">{{ task.title }}</span>
+        <fa-icon icon="play" transform="grow-6" size="xs"></fa-icon>
+      </button>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,188 @@
+/**
+ * Text uppercase
+*/
+.mat-button-wrapper {
+  //text-transform: uppercase;
+}
+.mat-button.no-uppercase .mat-button-wrapper {
+  text-transform: none;
+}
+
+/**
+ * Font awesome icons inside buttons
+ * with center-fix and some spacings
+*/
+.mat-button-wrapper {
+  fa-icon {
+    vertical-align: baseline !important;
+    margin-right: 0.1rem;
+    margin-left: 0.1rem;
+  }
+}
+
+/*
+  Variations
+*/
+.mat-button.btn-link {
+  text-decoration: underline;
+
+  .mat-button-wrapper {
+    text-transform: none;
+  }
+}
+
+.mat-button.btn-xs {
+  font-size: 0.7rem;
+  line-height: 1.5;
+  padding: 0 10px;
+}
+
+.mat-icon-button {
+  .mat-button-wrapper {
+    display: inline-flex;
+    height: 100%;
+    align-items: center;
+  }
+}
+
+.unitree-button__none,
+.unitree-button__default,
+.unitree-button__default--reversed,
+.unitree-button__success,
+.unitree-button__danger {
+  min-height: 36px;
+  font-size: 13px !important;
+  font-weight: bold;
+  height: fit-content;
+  border-radius: 4px !important;
+  -webkit-transition: background 0.4s;
+  transition: background 0.4s;
+  position: relative;
+  border: 0;
+
+  padding: 4px 15px !important;
+
+  .mat-button-wrapper {
+    line-height: 29px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+  }
+}
+
+.default-theme .unitree-button__none {
+  background: rgba(0, 0, 0, 0.3) !important;
+  color: white !important;
+}
+
+.default-theme .dialog .unitree-button__none {
+  background: transparent !important;
+  color: gray !important;
+}
+
+.dark-theme .dialog .unitree-button__none,
+.dark-v2-theme .dialog .unitree-button__none {
+  background: transparent !important;
+  color: gray !important;
+}
+
+.unitree-button__none {
+  background: #585a5b !important;
+  color: white !important;
+}
+
+.unitree-button__link {
+  color: white;
+  font-size: 13px !important;
+  font-weight: bold;
+  height: fit-content;
+  border-radius: 4px !important;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  position: relative;
+
+  line-height: 2 !important;
+  padding: 0 6px !important;
+
+  width: fit-content;
+
+  align-self: flex-end;
+
+  background: transparent !important;
+}
+
+.unitree-button__none.active {
+  background: #1d9e8f !important;
+}
+
+.unitree-button__auth {
+  color: white;
+  font-size: 20px !important;
+  font-weight: bold;
+  height: fit-content;
+  border-radius: 4px !important;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+
+  padding: 10px 16px !important;
+
+  background: #1d9e8f !important;
+  color: white !important;
+
+  .mat-button-wrapper {
+    text-transform: capitalize;
+  }
+
+  &:disabled {
+    background: #177b6f !important;
+    color: #c0c0c0 !important;
+    cursor: not-allowed !important;
+  }
+
+  &:hover:not(:disabled) {
+    background: #1a8c7f !important;
+    border: none !important;
+  }
+}
+
+.unitree-button__default {
+  background: #1d9e8f !important;
+  color: white !important;
+
+  &:disabled {
+    color: #e8e8e8 !important;
+    opacity: 0.6;
+  }
+
+  &:hover:not(:disabled) {
+    background: #1a8c7f !important;
+    border: none !important;
+  }
+}
+
+.unitree-button__default--reversed {
+  color: #42b0a4 !important;
+  background: transparent !important;
+  border: 2px solid #42b0a4 !important;
+  padding: 0px 11px !important;
+  &:hover {
+    background: #42b0a4 !important;
+    color: white !important;
+  }
+}
+
+.unitree-button__success {
+  background: #009e36 !important;
+  color: white !important;
+}
+
+.unitree-button__danger {
+  background: #e90000 !important;
+  color: white !important;
+}

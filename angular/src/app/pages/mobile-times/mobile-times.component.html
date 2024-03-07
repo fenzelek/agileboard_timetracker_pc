@@ -1,0 +1,62 @@
+
+<div class="ml-5 mr-5">
+
+  <!-- filters -->
+  <div>
+    <!-- year -->
+    <mat-form-field appearance="standard">
+      <!-- <mat-label>{{ 'tt.' | translate }}</mat-label> -->
+      <mat-select [(ngModel)]="year" (selectionChange)="fetchTimes()">
+        <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <!-- month -->
+    <mat-form-field appearance="standard">
+      <!-- <mat-label>{{ 'tt.' | translate }}</mat-label> -->
+      <mat-select [(ngModel)]="month" (selectionChange)="fetchTimes()">
+        <mat-option *ngFor="let month of months" [value]="month.index">{{ month.name | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <!-- results -->
+  <div class="relative mt-2">
+    
+    <ng-container *ngIf="!loading">
+
+    <!-- total in month -->
+    <div *ngIf="monthTime" class="mb-5 flex justify-content-between">
+      <div>{{ 'tt.time.total' | translate }}</div>
+      <div>{{ monthTime.hours }}h {{ monthTime.minutes }}m</div>
+    </div>
+
+      <div *ngFor="let item of times" class="day flex justify-content-between">
+        <div [ngClass]="{ weekend: isWeekend(item.date) }">
+          <span class="index mr-1 inline-block">{{ item.date.getDate() }}</span>
+          <span>{{ 'tt.days.' + item.date.getDay() | translate }}</span>
+        </div>
+        <div *ngIf="item.time" class="value">{{ item.time.hours }}h {{ item.time.minutes }}m</div>
+        <div *ngIf="!item.time" class="value opacity-75">{{ 'tt.info.no-data' | translate }}</div>
+      </div>
+
+    </ng-container>
+
+    <!-- loading info -->
+    <div *ngIf="loading" class="info">
+      <div class="info-wrap">
+        <app-spinner [width]="30" [height]="30"></app-spinner>
+      </div>
+    </div>
+
+    <!-- no data info -->
+    <div *ngIf="!loading && !times.length" class="text-center mt-5">
+      <fa-icon icon="box-open" size="2x"></fa-icon>
+      <div class="mt-1">
+        {{ 'tt.info.no-data' | translate }}
+      </div>
+    </div>
+
+  </div>
+
+</div>

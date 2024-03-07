@@ -1,0 +1,97 @@
+$dtm-dark-primary: mat-palette($mat-light-blue, 800, 600, 900);
+$dtm-dark-accent: mat-palette($mat-orange, 800, 600, 900);
+$dtm-dark-warn: mat-palette($mat-red, 900);
+
+$dtm-dark-v2-theme: mat-dark-theme($dtm-dark-primary, $dtm-dark-accent, $dtm-dark-warn);
+
+// Define Background colors
+$dtm-background: map-get($dtm-dark-v2-theme, background);
+$dtm-background: map_merge(
+  $dtm-background,
+  (
+    background: mat-color($dtm-primary, 800),
+  )
+);
+$dtm-dark-v2-theme: map-merge(
+  $dtm-dark-v2-theme,
+  (
+    background: $dtm-background,
+  )
+);
+
+// Define theme colors
+$dtm-dark-v2-theme: map-merge(
+  $dtm-dark-v2-theme,
+  (
+    colors: (
+      white: #fff,
+      primary: #4d93ff,
+      primary-dark: #0082cb,
+      primary-light: #e2eeff,
+      danger: #fe7373,
+      danger-dark: #e90000,
+      danger-light: #ffe4e4,
+      warning: #ffde87,
+      warning-dark: #b16000,
+      warning-light: #747474,
+      success: #5ce897,
+      success-dark: #009e36,
+      success-light: #deffec,
+      grey: #bdbdbd,
+      grey-dark: white,
+      grey-light: #747474,
+      mat-tab-label-active: #414b52,
+      mat-tab-links-label-color-active: white,
+      mat-tab-label-hover: #333a3f,
+      mat-tab-label-color-hover: white,
+      mat-tab-group-label-active: rgba(255, 255, 255, 0.05),
+      mat-tab-list-label-active: rgba(255, 255, 255, 0.05),
+      mat-tab-links-label-active: #2d323e,
+      // dark
+      mat-tab-label-dark: #2d323e,
+      mat-tab-links-dark-label-active: #42b0a4,
+    ),
+  )
+);
+
+// Define theme elements variables
+$dtm-dark-v2-theme: map-merge(
+  $dtm-dark-v2-theme,
+  (
+    elements: (
+      page-header-bg: #262c31,
+      page-bg: #272727,
+      card-bg: #2c3338,
+      card-select-company-contractor-bg: #353d42,
+      card-select-company-contractor-hover-bg: #49555d,
+      sidebar-bg: #272727,
+      mobile-carousel-button-bg: #3e9187,
+      mobile-carousel-button-text: white,
+      mobile-carousel-button-icon: white,
+      mobile-carousel-button-border: solid 1px white,
+      sidebar-item-hover: #3e4041,
+      sidebar-item-active-hover: #1b2025,
+      sidebar-piano-border-color: #2c3338,
+      sidebar-piano-hover-bg: #181a1f,
+      sidebar-piano-hover-border-color: #d6cece,
+      sidebar-piano-active-bg: #1a2027,
+      sidebar-piano-active-border-color: #1d1d1d,
+      sidebar-piano-default-bg: #2d323e,
+      toolbar-bg: #272727,
+      toolbar-user-button-bg: #2c3338,
+      toolbar-user-dropdown-bg: #2c3338,
+      toolbar-user-button-hover-bg: #1b2025,
+      select-panel-bg: #262c31,
+      select-panel-option-active-bg: #1b2025,
+      select-panel-option-active-text: white,
+      table-bg: #2c3338,
+      table-bg-hover: #21272b,
+      button-primary-bg: #1b2025,
+      dialog-bg: #2c3338,
+      collapse-piano-bg: #2c3338,
+      collapse-piano-bg-hover: #292f33,
+      collapse-piano-border: white,
+      mobile-entity-top-box: #424242
+    ),
+  )
+);

@@ -1,0 +1,392 @@
+{
+  "users": {
+    "data": [
+      {
+        "id": 99,
+        "user_id": 99,
+        "project_id": 2,
+        "role_id": 1,
+        "created_at": "2017-07-26 15:17:33",
+        "updated_at": "2021-07-14 13:45:05",
+        "user": {
+          "data": {
+            "id": 3,
+            "email": "user@user.com",
+            "password": "a",
+            "is_superadmin": 0,
+            "first_name": "John",
+            "last_name": "Doe",
+            "avatar": "1501079730_3.jpg",
+            "discount_code": null,
+            "remember_token": null,
+            "activated": 1,
+            "activate_hash": "3_1501074572trD4UaJsjoKJxJWNN4a3f3yClpDa5qUSjYr5pwrW",
+            "deleted": 0,
+            "creator_id": null,
+            "editor_id": null,
+            "remover_id": null,
+            "created_at": "2017-07-26 13:09:32",
+            "updated_at": "2017-07-26 14:35:31"
+          }
+        },
+        "role": {
+          "data": {
+            "id": 2,
+            "name": "admin",
+            "default": 1
+          }
+        }
+      },
+      {
+        "id": 3,
+        "user_id": 3,
+        "project_id": 2,
+        "role_id": 1,
+        "created_at": "2017-07-26 15:17:33",
+        "updated_at": "2021-07-14 13:45:05",
+        "user": {
+          "data": {
+            "id": 3,
+            "email": "a.fenzel@devpark.pl",
+            "is_superadmin": 0,
+            "first_name": "Andrzej",
+            "last_name": "Fenzel",
+            "avatar": "1501079730_3.jpg",
+            "discount_code": null,
+            "remember_token": null,
+            "activated": 1,
+            "activate_hash": "3_1501074572trD4UaJsjoKJxJWNN4a3f3yClpDa5qUSjYr5pwrW",
+            "deleted": 0,
+            "creator_id": null,
+            "editor_id": null,
+            "remover_id": null,
+            "created_at": "2017-07-26 13:09:32",
+            "updated_at": "2017-07-26 14:35:31"
+          }
+        },
+        "role": {
+          "data": {
+            "id": 1,
+            "name": "owner",
+            "default": 1
+          }
+        }
+      },
+      {
+        "id": 21,
+        "user_id": 11,
+        "project_id": 2,
+        "role_id": 1,
+        "created_at": "2017-08-03 17:16:04",
+        "updated_at": "2021-07-14 13:45:05",
+        "user": {
+          "data": {
+            "id": 11,
+            "email": "d.slebioda@devpark.pl",
+            "is_superadmin": 0,
+            "first_name": "Dominik",
+            "last_name": "Ślebioda",
+            "avatar": "1503557798_11.jpg",
+            "discount_code": null,
+            "remember_token": null,
+            "activated": 1,
+            "activate_hash": "11_15014884939IaHPryUGlMtcCwm6tP9uowsaQ4hQLdgEwUCCIG8",
+            "deleted": 0,
+            "creator_id": null,
+            "editor_id": null,
+            "remover_id": null,
+            "created_at": "2017-07-31 08:08:13",
+            "updated_at": "2021-06-29 08:33:38"
+          }
+        },
+        "role": {
+          "data": {
+            "id": 1,
+            "name": "owner",
+            "default": 1
+          }
+        }
+      },
+      {
+        "id": 38,
+        "user_id": 19,
+        "project_id": 2,
+        "role_id": 2,
+        "created_at": "2017-09-08 13:10:40",
+        "updated_at": "2021-07-14 13:45:05",
+        "user": {
+          "data": {
+            "id": 19,
+            "email": "mikolaj.w@devpark.pl",
+            "is_superadmin": 0,
+            "first_name": "Mikołaj",
+            "last_name": "Waśkowski",
+            "avatar": "1505743166_19.jpg",
+            "discount_code": null,
+            "remember_token": null,
+            "activated": 1,
+            "activate_hash": "",
+            "deleted": 0,
+            "creator_id": null,
+            "editor_id": null,
+            "remover_id": null,
+            "created_at": "2017-09-08 13:10:26",
+            "updated_at": "2017-09-18 13:59:26"
+          }
+        },
+        "role": {
+          "data": {
+            "id": 2,
+            "name": "admin",
+            "default": 1
+          }
+        }
+      },
+      {
+        "id": 801,
+        "user_id": 201,
+        "project_id": 2,
+        "role_id": 1,
+        "created_at": "2019-07-04 10:12:43",
+        "updated_at": "2021-07-14 13:45:05",
+        "user": {
+          "data": {
+            "id": 201,
+            "email": "kamil.k@devpark.pl",
+            "is_superadmin": 0,
+            "first_name": "Kamil",
+            "last_name": "Kościelniak",
+            "avatar": "1557209603_201.jpeg",
+            "discount_code": null,
+            "remember_token": null,
+            "activated": 1,
+            "activate_hash": "",
+            "deleted": 0,
+            "creator_id": null,
+            "editor_id": null,
+            "remover_id": null,
+            "created_at": "2019-05-06 13:34:06",
+            "updated_at": "2019-05-07 06:13:23"
+          }
+        },
+        "role": {
+          "data": {
+            "id": 1,
+            "name": "owner",
+            "default": 1
+          }
+        }
+      },
+      {
+        "id": 1482,
+        "user_id": 33,
+        "project_id": 2,
+        "role_id": 2,
+        "created_at": "2020-09-04 09:26:53",
+        "updated_at": "2021-07-14 13:45:05",
+        "user": {
+          "data": {
+            "id": 33,
+            "email": "j.idkowski@devpark.pl",
+            "is_superadmin": 0,
+            "first_name": "Jarosław",
+            "last_name": "Idkowski",
+            "avatar": "",
+            "discount_code": null,
+            "remember_token": null,
+            "activated": 1,
+            "activate_hash": "",
+            "deleted": 0,
+            "creator_id": null,
+            "editor_id": null,
+            "remover_id": null,
+            "created_at": "2017-11-09 13:57:08",
+            "updated_at": "2020-01-23 11:15:01"
+          }
+        },
+        "role": {
+          "data": {
+            "id": 2,
+            "name": "admin",
+            "default": 1
+          }
+        }
+      },
+      {
+        "id": 1507,
+        "user_id": 351,
+        "project_id": 2,
+        "role_id": 4,
+        "created_at": "2020-09-11 22:19:57",
+        "updated_at": "2021-07-14 13:45:05",
+        "user": {
+          "data": {
+            "id": 351,
+            "email": "witold.s@devpark.pl",
+            "is_superadmin": 0,
+            "first_name": "Witold",
+            "last_name": "Szrama",
+            "avatar": "1592809812_351.png",
+            "discount_code": "",
+            "remember_token": "KwGvosu2nlv6wEnMD3i7SlRiCAvUkK5HyT6EprWrkU9GKzSguQzRmXJ8bFyq",
+            "activated": 1,
+            "activate_hash": "351_1592377318u19OBt1FwDoSSZqkuI9me7Hvtf5nSvBhFui0tn9r",
+            "deleted": 0,
+            "creator_id": null,
+            "editor_id": null,
+            "remover_id": null,
+            "created_at": "2020-06-17 07:01:58",
+            "updated_at": "2020-06-22 07:10:12"
+          }
+        },
+        "role": {
+          "data": {
+            "id": 4,
+            "name": "developer",
+            "default": 1
+          }
+        }
+      },
+      {
+        "id": 1508,
+        "user_id": 196,
+        "project_id": 2,
+        "role_id": 2,
+        "created_at": "2020-09-11 22:19:57",
+        "updated_at": "2021-07-14 13:45:05",
+        "user": {
+          "data": {
+            "id": 196,
+            "email": "igor.s@devpark.pl",
+            "is_superadmin": 0,
+            "first_name": "Igor",
+            "last_name": "Sowiński",
+            "avatar": "1556007194_196.jpg",
+            "discount_code": null,
+            "remember_token": null,
+            "activated": 1,
+            "activate_hash": "",
+            "deleted": 0,
+            "creator_id": null,
+            "editor_id": null,
+            "remover_id": null,
+            "created_at": "2019-04-23 07:39:34",
+            "updated_at": "2019-04-23 08:13:14"
+          }
+        },
+        "role": {
+          "data": {
+            "id": 2,
+            "name": "admin",
+            "default": 1
+          }
+        }
+      },
+      {
+        "id": 1537,
+        "user_id": 15,
+        "project_id": 2,
+        "role_id": 4,
+        "created_at": "2020-10-26 12:59:58",
+        "updated_at": "2021-07-14 13:45:05",
+        "user": {
+          "data": {
+            "id": 15,
+            "email": "bartosz.g@devpark.pl",
+            "is_superadmin": 0,
+            "first_name": "Bartosz",
+            "last_name": "Giełczyk",
+            "avatar": "1503479599_15.JPG",
+            "discount_code": null,
+            "remember_token": null,
+            "activated": 1,
+            "activate_hash": "",
+            "deleted": 0,
+            "creator_id": null,
+            "editor_id": null,
+            "remover_id": null,
+            "created_at": "2017-08-07 07:08:48",
+            "updated_at": "2017-08-23 09:13:19"
+          }
+        },
+        "role": {
+          "data": {
+            "id": 4,
+            "name": "developer",
+            "default": 1
+          }
+        }
+      },
+      {
+        "id": 1618,
+        "user_id": 398,
+        "project_id": 2,
+        "role_id": 4,
+        "created_at": "2021-06-22 07:22:14",
+        "updated_at": "2021-07-14 13:45:05",
+        "user": {
+          "data": {
+            "id": 398,
+            "email": "robert.u@devpark.pl",
+            "is_superadmin": 0,
+            "first_name": "Robert",
+            "last_name": "Urbanowicz",
+            "avatar": "1615376841_398.jpeg",
+            "discount_code": null,
+            "remember_token": null,
+            "activated": 1,
+            "activate_hash": "",
+            "deleted": 0,
+            "creator_id": null,
+            "editor_id": null,
+            "remover_id": null,
+            "created_at": "2021-03-08 09:17:18",
+            "updated_at": "2021-03-10 11:47:21"
+          }
+        },
+        "role": {
+          "data": {
+            "id": 4,
+            "name": "developer",
+            "default": 1
+          }
+        }
+      },
+      {
+        "id": 1633,
+        "user_id": 98,
+        "project_id": 2,
+        "role_id": 4,
+        "created_at": "2021-07-14 13:45:05",
+        "updated_at": "2021-07-14 13:45:05",
+        "user": {
+          "data": {
+            "id": 98,
+            "email": "damian.s@devpark.pl",
+            "is_superadmin": 0,
+            "first_name": "Damian",
+            "last_name": "Szewczyk",
+            "avatar": "1595274045_98.JPG",
+            "discount_code": null,
+            "remember_token": null,
+            "activated": 1,
+            "activate_hash": "",
+            "deleted": 0,
+            "creator_id": null,
+            "editor_id": null,
+            "remover_id": null,
+            "created_at": "2018-01-31 20:25:16",
+            "updated_at": "2020-07-20 19:40:45"
+          }
+        },
+        "role": {
+          "data": {
+            "id": 4,
+            "name": "developer",
+            "default": 1
+          }
+        }
+      }
+    ]
+  }
+}

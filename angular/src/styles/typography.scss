@@ -1,0 +1,59 @@
+html, body {
+  font-size: 14px;
+  font-family: sans-serif;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 400;
+  margin-bottom: 0.5em;
+  &:not(:first-child) {
+    margin-top: 1.6em;
+  }
+}
+
+p {
+  line-height: 1.5;
+  margin-bottom: 1em;
+}
+
+mat-icon > fa-icon {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-center {
+  text-align: center;
+}
+
+$sizes: (
+  xs: 0.7,
+  sm: 0.9,
+  body: 1,
+  md: 1.1,
+  lg: 1.4,
+  xl: 1.6,
+  xxl: 2.2
+);
+
+// Font size classes, eg. ".fs-sm"
+@each $size, $value in $sizes {
+  .fs-#{"" + $size} {
+    font-size: #{$value + 'rem'} !important;
+    line-height: #{($value + 0.3) + 'rem' };
+  }
+}
+
+//  Opacity helpers
+.opacity-75 {
+  opacity: .75;
+}
+.opacity-50 {
+  opacity: .5;
+}
+.opacity-25 {
+  opacity: .25;
+}

@@ -1,0 +1,80 @@
+#mobile-toolbar {
+  height: 56px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+  .mobile-toolbar__title {
+    width: 70px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .mobile-toolbar__logo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .toolbar-title-logo {
+      height: 30px;
+      margin-right: 8px;
+    }
+  }
+
+  .language-button {
+    width: 70px;
+    height: 37px;
+    font-size: 14px;
+    padding-left: 12px;
+    padding-right: 12px;
+    padding-top: 3px;
+    border-radius: 4px !important;
+    transition: 0.5s all;
+    border-radius: 30px;
+  }
+
+  .mobile-toolbar__burger {
+    width: 90px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  }
+
+}
+
+::ng-deep .user-dropdown app-custom-svg > div {
+  display: flex;
+}
+
+.language-select-box {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  img {
+    height: 15px;
+    width: auto;
+    margin-right: 10px;
+    border-radius: 4px;
+  }
+}
+
+
+
+.user {
+  margin: 6px 12px;
+  opacity: .8;
+
+  .avatar {
+    width: 25px;
+    border-radius: 4px;
+  }
+
+  .name {
+
+  }
+}

@@ -1,0 +1,41 @@
+<div class="dialog-title mobile-entity-top-box" mat-dialog-title>
+  <div>{{ task?.data?.title }} - {{task?.data?.name}}</div>
+  <button mat-icon-button aria-label="close dialog" mat-dialog-close>
+    <mat-icon style="color: #fff; font-size: 30px;">close</mat-icon>
+  </button>
+</div>
+
+<mat-dialog-content>
+  <div>
+    <app-static-two-direction-box direction="row" [leftText]="'tt.tasks.name'"
+      [rightText]="task?.data?.title"></app-static-two-direction-box>
+
+    <app-static-two-direction-box direction="row" [leftText]="'tt.tasks.sprint'"
+      [rightText]="'Sprint ID -' + task?.data?.sprint_id"></app-static-two-direction-box>
+
+    <app-static-two-direction-box direction="row" [leftText]="'tt.tasks.assigned'"
+      [rightText]="getUserLabel(task?.data?.assigned_user?.data)"></app-static-two-direction-box>
+
+    <app-static-two-direction-box direction="row" [leftText]="'tt.tasks.reporter'"
+      [rightText]="getUserLabel(task?.details?.reporting_user.data)"></app-static-two-direction-box>
+
+    <app-static-two-direction-box direction="row" [leftText]="'tt.tasks.estimation'"
+      [rightText]="task?.details?.estimate_time | time: 'hm'"></app-static-two-direction-box>
+  </div>
+<!-- task?.details?.estimate_time -->
+  <div>
+    <app-static-two-direction-box direction="coll" [leftText]="'tt.tasks.my-time'"
+      [rightText]="time | time: 'hm'"></app-static-two-direction-box>
+
+    <span></span>
+
+    <app-static-two-direction-box *ngIf="task?.details?.stats" direction="coll" [leftText]="'tt.tasks.all-time'"
+      [rightText]="task?.details?.stats.data.tracked_summary | time: 'hm'"></app-static-two-direction-box>
+    </div>
+
+    <div class="description">
+      <div class="label">{{ 'tt.tasks.description' | translate }}</div>
+      <div class="value" [innerHTML]="task?.details?.description"></div>
+    </div>
+
+</mat-dialog-content>

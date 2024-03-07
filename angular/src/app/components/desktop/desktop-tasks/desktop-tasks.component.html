@@ -1,0 +1,174 @@
+<!-- top bar -->
+<div *ngIf="pageData" class="topBar">
+    <!-- filters -->
+    <div *ngIf="pageData" class="filters">
+        <!-- filter by task -->
+        <div (click)="searchInput.focus()" class="field field-search icon">
+            <fa-icon icon="search" class="search"></fa-icon>
+            <input #searchInput [(ngModel)]="filters.name" placeholder="{{ 'tt.tasks.search.task' | translate }}" (input)="filtersChange.next()">
+        </div>
+
+        <!-- filter by status -->
+        <div class="field field-select">
+            <mat-form-field [title]="getStatusFilterValueLabel()" appearance="fill">
+                <mat-label>{{ 'tt.tasks.status' | translate }}</mat-label>
+                <mat-select [(ngModel)]="filters.status" #statusFilterSelect
+                            (selectionChange)="filtersChange.next()" (openedChange)="focusStatusFilterSearch()">
+
+                    <app-select-search #statusFilterSearch placeholder="{{ 'tt.search' | translate }}" (search)="filterOptions($event, 'statuses')"></app-select-search>
+                    <mat-option *ngFor="let status of statuses" [value]="status.id">{{ status.name }}</mat-option>
+                    <mat-option style="display: none;" *ngIf="statuses && !statuses.length" [value]="filters.status">{{ getStatusFilterValueLabel() }}</mat-option>
+                    <mat-option disabled *ngIf="statuses && !statuses.length">{{ 'tt.tasks.filters.no-results' | translate }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <fa-icon *ngIf="filters.status" icon="times" class="clear" title="{{ 'tt.tasks.filters.clear' | translate }}" (click)="clearStatus()"></fa-icon>
+        </div>
+
+        <!-- filter by sprint -->
+        <div class="field field-select">
+            <mat-form-field [title]="getSprintFilterValueLabel()" appearance="fill">
+                <mat-label>{{ 'tt.tasks.sprint' | translate }}</mat-label>
+                <mat-select [(ngModel)]="filters.sprint" #sprintFilterSelect
+                            (selectionChange)="filtersChange.next()" (openedChange)="focusSprintFilterSearch()">
+
+                    <app-select-search #sprintFilterSearch placeholder="{{ 'tt.search' | translate }}" (search)="filterOptions($event, 'sprints')"></app-select-search>
+                    <mat-option *ngFor="let sprint of sprints" [value]="sprint.id">{{ sprint.name }}</mat-option>
+                    <mat-option style="display: none;" *ngIf="sprints && !sprints.length" [value]="filters.sprint">{{ getSprintFilterValueLabel() }}</mat-option>
+                    <mat-option disabled *ngIf="sprints && !sprints.length">{{ 'tt.tasks.filters.no-results' | translate }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <fa-icon *ngIf="filters.sprint" icon="times" class="clear" title="{{ 'tt.tasks.filters.clear' | translate }}" (click)="clearSprint()"></fa-icon>
+        </div>
+
+        <!-- filter by assigned -->
+        <div class="field field-select">
+            <mat-form-field [title]="getAssignedFilterValueLabel()" appearance="fill">
+                <mat-label>{{ 'tt.tasks.assigned' | translate }}</mat-label>
+                <mat-select [(ngModel)]="filters.assigned" #assignedFilterSelect
+                            (selectionChange)="filtersChange.next()" (openedChange)="focusAssignedFilterSearch()">
+
+                    <app-select-search #assignedFilterSearch placeholder="{{ 'tt.search' | translate }}" (search)="filterOptions($event, 'users')"></app-select-search>
+
+                    <div class="project-select-auto-me">
+                        <mat-checkbox (change)="setAutoAssignMe($event.checked)" [(ngModel)]="autoAssignMe" class="example-margin">{{ 'tt.tasks.auto-assign-me' | translate }}</mat-checkbox>
+                    </div>
+
+                    <mat-option [value]="-1"><i>{{ 'tt.unassigned' | translate }}</i></mat-option>
+                    <mat-option *ngFor="let user of users" [value]="user.user_id">
+                        {{ user.user.data.first_name }} {{ user.user.data.last_name }}
+                    </mat-option>
+                    <mat-option style="display: none;" *ngIf="users && !users.length" [value]="filters.assigned">{{ getAssignedFilterValueLabel() }}</mat-option>
+                    <mat-option disabled *ngIf="users && !users.length">{{ 'tt.tasks.filters.no-results' | translate }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <fa-icon *ngIf="filters.assigned" icon="times" class="clear" title="{{ 'tt.tasks.filters.clear' | translate }}" (click)="clearAssigned()"></fa-icon>
+        </div>
+    </div>
+
+    <!-- add task -->
+    <div class="buttons"></div>
+</div>
+
+<!-- tiny loading info (refresh) -->
+<div *ngIf="loading && !projectHasChanged" class="loading-small">
+    <app-custom-svg svg="spinner" width="18" height="18" stroke="currentColor" fill="none"></app-custom-svg>
+</div>
+
+<!-- task list table -->
+
+<div *ngIf="pageData" class="task-list-box" [class.is-task-details-show]="!!(isSelectedTask$ | async)">
+    <table mat-table [dataSource]="pageData" class="task-list-table">
+        <!-- title/number -->
+        <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef (click)="onSort('title_number')" class="sort" 
+                title="{{ 'tt.tasks.click-to-sort' | translate }}">
+                {{ 'tt.tasks.name' | translate }}
+                <fa-icon *ngIf="sortSettings.column === 'title_number'" [icon]="sortSettings.direction === 'asc' ? 'arrow-up' : 'arrow-down'"></fa-icon>
+            </th>
+            <td mat-cell *matCellDef="let task" class="no-wrap">{{ task.data.title }}</td>
+        </ng-container>
+    
+        <!-- name -->
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let task">{{ task.data.name }}</td>
+        </ng-container>
+    
+        <!-- status -->
+        <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef (click)="onSort('status_id')" class="sort" 
+                title="{{ 'tt.tasks.click-to-sort' | translate }}">
+                {{ 'tt.tasks.status' | translate }}
+                <fa-icon *ngIf="sortSettings.column === 'status_id'" [icon]="sortSettings.direction === 'asc' ? 'arrow-up' : 'arrow-down'"></fa-icon>
+            </th>
+            <td mat-cell *matCellDef="let task">{{ getStatusName(task.data) }}</td>
+        </ng-container>
+    
+        <!-- sprint -->
+        <ng-container matColumnDef="sprint">
+            <th mat-header-cell *matHeaderCellDef (click)="onSort('sprint_id')" class="sort" 
+                title="{{ 'tt.tasks.click-to-sort' | translate }}">
+                {{ 'tt.tasks.sprint' | translate }}
+                <fa-icon *ngIf="sortSettings.column === 'sprint_id'" [icon]="sortSettings.direction === 'asc' ? 'arrow-up' : 'arrow-down'"></fa-icon>
+            </th>
+            <td mat-cell *matCellDef="let task">{{ getSprintName(task.data) }}</td>
+        </ng-container>
+    
+        <!-- assigned -->
+        <ng-container matColumnDef="assigned">
+            <th mat-header-cell *matHeaderCellDef (click)="onSort('assigned')" class="sort" 
+                title="{{ 'tt.tasks.click-to-sort' | translate }}">
+                {{ 'tt.tasks.assigned' | translate }}
+                <fa-icon *ngIf="sortSettings.column === 'assigned'" [icon]="sortSettings.direction === 'asc' ? 'arrow-up' : 'arrow-down'"></fa-icon>
+            </th>
+            <td mat-cell *matCellDef="let task">{{ task.data.assigned }}</td>
+        </ng-container>
+    
+        <!-- buttons -->
+        <ng-container matColumnDef="buttons">
+            <th mat-header-cell *matHeaderCellDef></th>
+            <td mat-cell *matCellDef="let task" class="buttons">
+                <!-- start task -->
+                <button mat-icon-button color="primary" (click)="toggleActive(task, $event)">
+                    <fa-icon [icon]="task.isActive ? 'stop' : 'play'" color="primary" size="lg"></fa-icon>
+                </button>
+                <!-- open in agileBoard -->
+                <button mat-icon-button color="primary" (click)="openTaskInBrowser(task, $event)">
+                    <fa-icon icon="external-link-alt" color="primary" size="lg"></fa-icon>
+                </button>
+            </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let task; columns: displayedColumns;" [ngClass]="{ selected: task.isSelected, active: task.isActive }" (click)="toggleSelected(task)"></tr>
+    </table>
+
+    <!-- no results info -->
+    <div class="no-results" *ngIf="!loading && !allDataLength && !filters.empty">{{ 'tt.tasks.filters.no-results' | translate }}</div>
+
+    <!-- no tasks in project info -->
+    <div class="no-results" *ngIf="pageData && !allDataLength && filters.empty">{{ 'tt.info.no-data' | translate }}</div>
+</div>
+
+<!-- pagination -->
+<div *ngIf="pageData" class="paginator-box">
+    <mat-paginator [pageSizeOptions]="[5, 10, 15, 20, 50]" showFirstLastButtons
+    [length]="allDataLength" [pageIndex]="pageIndex" [pageSize]="pageSize" (page)="changePage($event); taskListWrapperScrollTop();"></mat-paginator>
+</div>
+
+
+<!-- no project selected info -->
+<div *ngIf="!pageData && !loading" class="info-wrap">
+    <div class="info">
+        <fa-icon icon="tasks" size="3x"></fa-icon>
+        <div class="message">{{ 'tt.tasks.project-not-selected' | translate }}</div>
+    </div>
+</div>
+
+<!-- loading info - lock/cover interface (project has changed) -->
+<div *ngIf="loading && projectHasChanged" class="info-wrap cover">
+    <div class="info">
+        <app-custom-svg svg="spinner" width="50" height="50" stroke="currentColor" fill="none"></app-custom-svg>
+        <div class="message">{{ 'tt.loading' | translate }}</div>
+    </div>
+</div>

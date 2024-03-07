@@ -1,0 +1,20 @@
+<!-- tasks -->
+
+<div *ngIf="activeView === DesktopContentView.TASKLIST" [ngClass]="['position-' + taskDetailsPosition]" class="tasks-main-content" [class.is-task-details-show]="isTaskSelected">
+  <!-- task list -->
+  <div class="task-list-wrapper">
+    <app-desktop-tasks></app-desktop-tasks>
+  </div>
+
+  <!-- selected task details -->
+  <div *ngIf="isTaskSelected" class="task-details-wrapper">
+    <app-desktop-task-details [taskDetailsPosition]="taskDetailsPosition"></app-desktop-task-details>
+  </div>
+
+</div>
+
+
+<!-- registered times -->
+<div *ngIf="activeView === DesktopContentView.REGISTERED_TIMES" class="main-content">
+  <app-desktop-times></app-desktop-times>
+</div>

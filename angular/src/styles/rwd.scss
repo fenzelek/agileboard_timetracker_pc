@@ -1,0 +1,151 @@
+@import "variables";
+
+// Info:
+// Flex Layout media queries
+// xs	'screen and (max-width: 599px)'
+// sm	'screen and (min-width: 600px) and (max-width: 959px)'
+// md	'screen and (min-width: 960px) and (max-width: 1279px)'
+// lg	'screen and (min-width: 1280px) and (max-width: 1919px)'
+// xl	'screen and (min-width: 1920px) and (max-width: 5000px)'
+// lt-sm	'screen and (max-width: 599px)'
+// lt-md	'screen and (max-width: 959px)'
+// lt-lg	'screen and (max-width: 1279px)'
+// lt-xl	'screen and (max-width: 1919px)'
+// gt-xs	'screen and (min-width: 600px)'
+// gt-sm	'screen and (min-width: 960px)'
+// gt-md	'screen and (min-width: 1280px)'
+// gt-lg	'screen and (min-width: 1920px)'
+
+// Bootstrap 4 like grid width
+.container,
+.container-fluid {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  padding-top: 1rem; // some whitespace from the top
+  padding-bottom: 1rem; // some whitespace from the bottom
+  display: flex;
+  align-items: stretch;
+}
+.container {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+@media (min-width: map-get($grid-breakpoints, sm)) {
+  .container {
+    max-width: 540px;
+  }
+}
+@media (min-width: map-get($grid-breakpoints, md)) {
+  .container {
+    max-width: 720px;
+  }
+}
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  .container {
+    max-width: 960px;
+  }
+}
+@media (min-width: map-get($grid-breakpoints, xl)) {
+  .container {
+    max-width: 1140px;
+  }
+}
+
+/**
+  * Table
+*/
+.mobile-label {
+  display: none;
+}
+// @media (max-width: map-get($grid-breakpoints, md)) {
+//   .table-responsive {
+//     .mobile-label {
+//       width: 80px;
+//       display: inline-block;
+//       font-weight: $body-font-weight;
+//     }
+
+//     .mat-header-row {
+//       display: none;
+//     }
+
+//     .mat-row {
+//       flex-direction: column;
+//       align-items: start;
+//       padding: 8px 24px;
+
+//       .mat-cell {
+//         padding: 0.3rem 0;
+//         min-height: 24px;
+//       }
+//     }
+
+//     .mat-footer-row::after,
+//     .mat-header-row::after,
+//     .mat-row::after {
+//       display: none;
+//     }
+//   }
+// }
+.table-responsive {
+  display: block;
+  width: 100%;
+  overflow-x: auto !important;
+  -webkit-overflow-scrolling: touch;
+  -ms-overflow-style: -ms-autohiding-scrollbar;
+  border-radius: 4px 4px 4px 4px;
+
+  table,
+  .mat-table {
+    min-width: 100%;
+    width: fit-content;
+  }
+
+  mat-cell,
+  mat-header-cell,
+  mat-footer-cell {
+    justify-content: center;
+    min-width: auto;
+    // text-align: center;
+    padding-right: 10px;
+    padding-left: 10px;
+    .footer-buttons {
+      display: flex;
+      flex-direction: row;
+      align-self: center;
+      flex: auto;
+    }
+  }
+
+  @media screen and (max-width: 1500px) {
+    mat-cell,
+    mat-header-cell,
+    mat-footer-cell {
+      min-width: 200px;
+    }
+  }
+
+  .mat-sort-header-container {
+    justify-content: center;
+  }
+}
+
+.mat-paginator-page-size-select {
+  margin: 0 !important;
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+    .mat-form-field-underline {
+      bottom: 0 !important;
+    }
+  }
+}
+
+::ng-deep mat-paginator {
+  .mat-form-field-appearance-outline {
+
+  }
+}

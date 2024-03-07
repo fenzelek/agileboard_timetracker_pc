@@ -1,0 +1,16 @@
+<app-selected-project-box></app-selected-project-box>
+
+<div class="pt-2 pl-2 pr-2">
+  
+  <!-- buttons -->
+  <div class="flex justify-content-between mb-3">
+    <button mat-stroked-button (click)="openFiltersDialog()">{{ 'tt.mobile.tasks.filter' | translate }}</button>
+    <button mat-stroked-button (click)="openCreateTaskDialog()">{{ 'tt.mobile.tasks.new.task' | translate }}</button>
+  </div>
+  
+  <!-- tasks -->
+  <div>
+    <app-mobile-task-list (clickSelected)="goNextStep.emit()"></app-mobile-task-list>
+  </div>
+
+</div>

@@ -1,0 +1,39 @@
+.dialog-wrap {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  background: rgba(0, 0, 0, 0.3);
+
+  .dialog {
+    padding: 20px;
+    background: #fff;
+    border-radius: 4px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+
+    .header {
+      margin-bottom: 20px;
+    }
+
+    .body {
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      text-align: right;
+
+      button {
+        border: 1px solid #d8d8d8;
+        background: transparent;
+        margin-right: 10px;
+        &:nth-last-child(1) { margin-right: 0 }
+      }
+    }
+
+  }
+}

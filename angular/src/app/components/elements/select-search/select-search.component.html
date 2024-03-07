@@ -1,0 +1,4 @@
+<div class="mat-select-search">
+    <input type="text" placeholder="{{ placeholder }}" #inp (input)="queryChange.next(inp.value)" />
+    <fa-icon icon="backspace" title="{{ 'tt.tasks.filters.clear' | translate }}" (click)="clear()"></fa-icon>
+</div>

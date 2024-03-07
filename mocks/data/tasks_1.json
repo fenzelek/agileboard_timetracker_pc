@@ -1,0 +1,391 @@
+{
+  "tasks_1": {
+    "data": [
+      {
+        "id": 749,
+        "project_id": 18,
+        "sprint_id": 64,
+        "sprint_name": "2020-III kwartal",
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "Staging dla ad-test.dzineelements.com",
+        "title": "DEVOPS-3",
+        "type_id": 2,
+        "assigned_id": 3,
+        "reporter_id": 3,
+        "description": "<p>W zasadzie gotowe, \u015brodowisko przygotowane, dost\u0119p przez serwer access za pomoc\u0105: ferrantino.stage.dzineelements<br\/>Oraz jenkins: http:\/\/jenkins.devpark.com.pl\/job\/ferrantino.stage.dzineelements\/ kt\u00f3ry po przetestowaniu wygl\u0105da OK.<br\/>\u00a0Pozosta\u0142 jedynie problem z prawami o czym napisa\u0142em do Reberto.<br\/><\/p><p><i>file_put_contents(\/data\/www\/adtest2017\/htdocs\/storage\/framework\/views\/2e6fcfe2b0c783c1b036b1971134598f4bc8aa81.php):<br\/>\u00a0failed to open stream: Permission denied<\/i><br\/><\/p>",
+        "estimate_time": 1800,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 1,
+        "hidden": 0,
+        "created_at": "2017-10-24 13:16:47",
+        "updated_at": "2017-12-01 10:36:54",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": [
+            {
+              "id": 7,
+              "project_id": 18,
+              "name": "Yuri (dzine)",
+              "color": null,
+              "priority": 3,
+              "created_at": "2017-10-23 13:45:58",
+              "updated_at": "2017-10-23 13:45:58",
+              "deleted_at": null
+            }
+          ]
+        },
+        "assigned_user": {
+          "data": {
+            "id": 3,
+            "email": "a.fenzel@devpark.pl",
+            "first_name": "Andrzej",
+            "last_name": "Fenzel",
+            "avatar": "1501079730_3.jpg",
+            "activated": true,
+            "deleted": false
+          }
+        }
+      },
+      {
+        "id": 750,
+        "project_id": 18,
+        "sprint_id": 64,
+        "sprint_name": "2020-III kwartal",
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "Vladimir help",
+        "title": "DEVOPS-4",
+        "type_id": 2,
+        "assigned_id": 3,
+        "reporter_id": 3,
+        "description": "<p>W Pa\u017adzierniku by\u0142o to:<\/p><p>\u00a0- Nagios<br\/>\u00a0- Naprawa SSH<br\/>\u00a0- DNS cluster (retrospection)<br\/>\u00a0- Instalacja narz\u0119dzi do zarz\u0105dzania RAID'em<br\/>\u00a0- Monitoring smart<br\/><\/p>",
+        "estimate_time": 54000,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 2,
+        "hidden": 0,
+        "created_at": "2017-10-24 13:25:48",
+        "updated_at": "2017-12-01 10:36:54",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": [
+            {
+              "id": 6,
+              "project_id": 18,
+              "name": "Vladimir (aztek)",
+              "color": null,
+              "priority": 2,
+              "created_at": "2017-10-23 13:45:40",
+              "updated_at": "2017-10-23 13:45:40",
+              "deleted_at": null
+            }
+          ]
+        },
+        "assigned_user": {
+          "data": {
+            "id": 3,
+            "email": "a.fenzel@devpark.pl",
+            "first_name": "Andrzej",
+            "last_name": "Fenzel",
+            "avatar": "1501079730_3.jpg",
+            "activated": true,
+            "deleted": false
+          }
+        }
+      },
+      {
+        "id": 732,
+        "project_id": 18,
+        "sprint_id": 64,
+        "sprint_name": "2020-III kwartal",
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "Do \u015brody - srodowisko ReviewDashboard - na serwerze Dave'a",
+        "title": "DEVOPS-2",
+        "type_id": 2,
+        "assigned_id": 4,
+        "reporter_id": 4,
+        "description": "<p>Czy masz mo\u017ce dost\u0119p do quay.io? czy istnieje ju\u017c jakis gotowy obraz docker'a, czy mamy po prostu kod i trzeba to jako\u015b wypchn\u0105\u0107 na stage?<br\/>Jaka jest domena dla api? mozemy tu wrzucic wszystkie nie wrazliwe dane? (klucze juz sobie zapisa\u0142em) jaki jest adres repo dashboard'u?<br\/><\/p>",
+        "estimate_time": 5400,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 3,
+        "hidden": 0,
+        "created_at": "2017-10-23 13:38:23",
+        "updated_at": "2017-12-01 10:36:54",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": [
+            {
+              "id": 5,
+              "project_id": 18,
+              "name": "Dave (DLWT)",
+              "color": null,
+              "priority": 1,
+              "created_at": "2017-10-23 13:45:29",
+              "updated_at": "2017-10-23 13:45:29",
+              "deleted_at": null
+            }
+          ]
+        },
+        "assigned_user": {
+          "data": {
+            "id": 4,
+            "email": "przemyslaw.t@devpark.pl",
+            "first_name": "Przemek",
+            "last_name": "Tkaczyk",
+            "avatar": "1501145723_4.jpg",
+            "activated": true,
+            "deleted": false
+          }
+        }
+      },
+      {
+        "id": 913,
+        "project_id": 18,
+        "sprint_id": 74,
+        "sprint_name": "Ulepszenia",
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "Vtech STAGE - restart",
+        "title": "DEVOPS-7",
+        "type_id": 2,
+        "assigned_id": 4,
+        "reporter_id": 4,
+        "description": "<div>idealnie by bylo w czw miec swieze ;) zeby przetestowac zanim pojade do vtechu (w piatek)<\/div>",
+        "estimate_time": 1800,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 4,
+        "hidden": 0,
+        "created_at": "2017-11-08 07:16:56",
+        "updated_at": "2017-12-01 10:36:54",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": [
+            {
+              "id": 21,
+              "project_id": 18,
+              "name": "V-tech",
+              "color": "#5E35B1",
+              "priority": 4,
+              "created_at": "2017-11-16 10:01:37",
+              "updated_at": "2017-11-16 10:01:37",
+              "deleted_at": null
+            }
+          ]
+        },
+        "assigned_user": {
+          "data": {
+            "id": 4,
+            "email": "przemyslaw.t@devpark.pl",
+            "first_name": "Przemek",
+            "last_name": "Tkaczyk",
+            "avatar": "1501145723_4.jpg",
+            "activated": true,
+            "deleted": false
+          }
+        }
+      },
+      {
+        "id": 1013,
+        "project_id": 18,
+        "sprint_id": 74,
+        "sprint_name": "Ulepszenia",
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "redis & supervisior dla review-api",
+        "title": "DEVOPS-8",
+        "type_id": 2,
+        "assigned_id": 4,
+        "reporter_id": 13,
+        "description": "<div>Dorobienie supervisior'a i redis'a zar\u00f3wno na naszym serwerze dev, jak i AWS dla projektu review-api (dlwt)<br\/><\/div>",
+        "estimate_time": 3600,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 5,
+        "hidden": 0,
+        "created_at": "2017-11-16 09:51:41",
+        "updated_at": "2017-12-01 10:36:54",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": [
+            {
+              "id": 5,
+              "project_id": 18,
+              "name": "Dave (DLWT)",
+              "color": null,
+              "priority": 1,
+              "created_at": "2017-10-23 13:45:29",
+              "updated_at": "2017-10-23 13:45:29",
+              "deleted_at": null
+            }
+          ]
+        },
+        "assigned_user": {
+          "data": {
+            "id": 4,
+            "email": "przemyslaw.t@devpark.pl",
+            "first_name": "Przemek",
+            "last_name": "Tkaczyk",
+            "avatar": "1501145723_4.jpg",
+            "activated": true,
+            "deleted": false
+          }
+        }
+      },
+      {
+        "id": 1220,
+        "project_id": 18,
+        "sprint_id": 74,
+        "sprint_name": "Ulepszenia",
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "Create docker environment for EMS Dev Portal",
+        "title": "DEVOPS-11",
+        "type_id": 2,
+        "assigned_id": 13,
+        "reporter_id": 15,
+        "description": "",
+        "estimate_time": 3600,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 6,
+        "hidden": 0,
+        "created_at": "2017-11-29 14:21:38",
+        "updated_at": "2017-12-01 10:36:54",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": [
+            {
+              "id": 5,
+              "project_id": 18,
+              "name": "Dave (DLWT)",
+              "color": null,
+              "priority": 1,
+              "created_at": "2017-10-23 13:45:29",
+              "updated_at": "2017-10-23 13:45:29",
+              "deleted_at": null
+            }
+          ]
+        },
+        "assigned_user": {
+          "data": {
+            "id": 13,
+            "email": "lukasz.k@devpark.pl",
+            "first_name": "\u0141ukasz",
+            "last_name": "Kr\u0119giel",
+            "avatar": "",
+            "activated": true,
+            "deleted": false
+          }
+        }
+      },
+      {
+        "id": 1211,
+        "project_id": 18,
+        "sprint_id": 74,
+        "sprint_name": "Ulepszenia",
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "EMSHPP production set up and lunch.",
+        "title": "DEVOPS-10",
+        "type_id": 2,
+        "assigned_id": 13,
+        "reporter_id": 13,
+        "description": "<div>- Setting up AWS (instances, Autoscalling groups, Load balancer, SNS topics, monitorings, RDS) - 30 hours<br\/>- Documentation - 3 hours<br\/><\/div>",
+        "estimate_time": 118800,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 7,
+        "hidden": 0,
+        "created_at": "2017-11-28 12:29:54",
+        "updated_at": "2017-12-01 10:36:54",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": [
+            {
+              "id": 5,
+              "project_id": 18,
+              "name": "Dave (DLWT)",
+              "color": null,
+              "priority": 1,
+              "created_at": "2017-10-23 13:45:29",
+              "updated_at": "2017-10-23 13:45:29",
+              "deleted_at": null
+            }
+          ]
+        },
+        "assigned_user": {
+          "data": {
+            "id": 13,
+            "email": "lukasz.k@devpark.pl",
+            "first_name": "\u0141ukasz",
+            "last_name": "Kr\u0119giel",
+            "avatar": "",
+            "activated": true,
+            "deleted": false
+          }
+        }
+      },
+      {
+        "id": 865,
+        "project_id": 18,
+        "sprint_id": 74,
+        "sprint_name": "Ulepszenia",
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "granddesignssubscriptions.com na myriad",
+        "title": "DEVOPS-6",
+        "type_id": 2,
+        "assigned_id": 13,
+        "reporter_id": 13,
+        "description": "<div>Prosz\u0119 o skonfigurowanie nowego \u015brodwiska na serwerze aztek na kt\u00f3rym uruchomiona ma by\u0107 nowa wersja serwisu w opraciu o myriad i wordpress.<br\/><\/div>",
+        "estimate_time": 3600,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 8,
+        "hidden": 0,
+        "created_at": "2017-11-02 18:49:57",
+        "updated_at": "2017-12-01 10:36:54",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": [
+            {
+              "id": 6,
+              "project_id": 18,
+              "name": "Vladimir (aztek)",
+              "color": null,
+              "priority": 2,
+              "created_at": "2017-10-23 13:45:40",
+              "updated_at": "2017-10-23 13:45:40",
+              "deleted_at": null
+            }
+          ]
+        },
+        "assigned_user": {
+          "data": {
+            "id": 13,
+            "email": "lukasz.k@devpark.pl",
+            "first_name": "\u0141ukasz",
+            "last_name": "Kr\u0119giel",
+            "avatar": "",
+            "activated": true,
+            "deleted": false
+          }
+        }
+      }
+    ],
+    "exec_time": 1.2055
+  }
+}

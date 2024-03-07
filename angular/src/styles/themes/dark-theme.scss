@@ -1,0 +1,107 @@
+@import 'palette';
+
+$dtm-dark-accent: mat-palette($mat-orange, 800, 600, 900);
+$dtm-dark-warn: mat-palette($mat-red, 900);
+
+$dtm-dark-theme: mat-dark-theme($dtm-primary, $dtm-dark-accent, $dtm-dark-warn);
+
+// Define Background colors
+$dtm-background: map-get($dtm-dark-theme, background);
+$dtm-background: map_merge(
+  $dtm-background,
+  (
+    background: mat-color($dtm-primary, 800),
+  )
+);
+$dtm-dark-theme: map-merge(
+  $dtm-dark-theme,
+  (
+    background: $dtm-background,
+  )
+);
+
+// Define theme colors
+$dtm-dark-theme: map-merge(
+  $dtm-dark-theme,
+  (
+    colors: (
+      font: #dadada,
+      white: #fff,
+      primary: #249e91,
+      primary-dark: #338d83,
+      primary-light: #e2eeff,
+      danger: #fe7373,
+      danger-dark: #e90000,
+      danger-light: #ffe4e4,
+      warning: #ffde87,
+      warning-dark: #b16000,
+      warning-light: #747474,
+      success: #5ce897,
+      success-dark: #009e36,
+      success-light: #deffec,
+      grey: #bdbdbd,
+      grey-dark: white,
+      grey-light: #747474,
+      mat-tab-label-active: #2d323e,
+      mat-tab-links-label-color-active: white,
+      mat-tab-label-hover: #272b35,
+      mat-tab-label-color-hover: white,
+      mat-tab-group-label-active: rgba(255, 255, 255, 0.05),
+      mat-tab-list-label-active: rgba(255, 255, 255, 0.05),
+      mat-tab-links-label-active: #1a8c7f,
+      // dark
+      mat-tab-label-dark: #2d323e,
+      mat-tab-links-dark-label-active: #42b0a4,
+    ),
+  )
+);
+
+// Define theme elements variables
+$dtm-dark-theme: map-merge(
+  $dtm-dark-theme,
+  (
+    elements: (
+      page-header-bg: #1d9a8c,
+      page-bg: #1b1b1b,
+      card-bg: #383a3b,
+      card-select-company-contractor-bg: #3e434f,
+      card-select-company-contractor-hover-bg: #343842,
+      mobile-carousel-button-bg: #3e9187,
+      mobile-carousel-button-icon: white,
+      mobile-carousel-button-text: white,
+      mobile-carousel-button-border: solid 1px white,
+      sidebar-bg: #272727,
+      sidebar-item-hover: #3e4041,
+      sidebar-item-active-hover: #3e9187,
+      sidebar-piano-border-color: #2c3338,
+      sidebar-piano-hover-bg: #181a1f,
+      sidebar-piano-hover-border-color: #d6cece,
+      sidebar-piano-active-bg: #000000,
+      sidebar-piano-active-border-color: #1d1d1d,
+      sidebar-piano-default-bg: #2d323e,
+      toolbar-bg: #272727,
+      toolbar-user-button-bg: #1b1b1b,
+      toolbar-user-dropdown-bg: #424242,
+      toolbar-user-button-hover-bg: #3d3c3c,
+      select-panel-bg: #424242,
+      select-panel-option-active-bg: #3d3c3c,
+      select-panel-option-active-text: white,
+      table-bg: #272727,
+      dialog-bg: #272727,
+      collapse-piano-bg: #2c3338,
+      collapse-piano-bg-hover: #292f33,
+      collapse-piano-border: white,
+      menu-item-hover: #3e4041,
+      menu-item-active: #272727,
+      nav-list: #1b1b1b,
+      cover: rgba(0, 0, 0, 0.4),
+      mobile-entity-top-box: #424242,
+      input-bg: #272727,
+      input-border: #272727,
+      popup-input-bg: #424242,
+      input-color: #fff,
+      input-placeholder-color: #afafaf,
+      menu-text-invert: #c8c8c8,
+    ),
+  )
+);

@@ -1,0 +1,109 @@
+@import "~@angular/material/theming";
+
+@mixin dtm-tabs-theme($theme) {
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    $colors: map-get($theme, colors);
+    $elements: map-get($theme, elements);
+
+    .dialog {
+        .mat-tab-group {
+            .mat-tab-list {
+                .mat-tab-labels {
+                    .mat-tab-label:not(.mat-tab-label-active):hover {
+                        background-color: rgba(0, 0, 0, 0.09) !important;
+                    }
+
+                    .mat-tab-label-active {
+                        background-color: map-get($colors, mat-tab-links-dark-label-active) !important;
+                        color: white !important;
+                    }
+                }
+            }
+        }
+    }
+
+    .mat-tab-group {
+        .mat-tab-list {
+            .mat-tab-labels {
+                gap: 10px;
+                .mat-tab-label {
+                    opacity: 1; // default: .6
+                    height: 42px; // default: 48px;
+                    border-radius: 4px;
+                }
+
+                .mat-tab-link:not(.mat-tab-label-active):hover {
+                    background-color: rgba(0, 0, 0, 0.09) !important;
+                }
+
+                .mat-tab-label-active {
+                    background-color: map-get($colors, mat-tab-list-label-active) !important;
+                    color: map-get($foreground, text) !important;
+                    border-radius: 4px;
+                }
+            }
+        }
+    }
+
+    .mat-tab-nav-bar.mat-background-dark {
+        .mat-tab-links {
+            gap: 10px;
+            .mat-tab-link {
+                opacity: 1; // default: .6
+                height: 42px; // default: 48px;
+                border-radius: 4px;
+                color: map-get($foreground, text) !important;
+                background-color: map-get($colors, mat-tab-label-dark) !important;
+            }
+
+            .mat-tab-link:focus {
+                border-radius: 4px;
+            }
+
+            .mat-tab-link:not(.mat-tab-label-active):hover {
+                background-color: rgba(0, 0, 0, 0.09) !important;
+            }
+
+            .mat-tab-label-active {
+                background-color: map-get($colors, mat-tab-links-dark-label-active) !important;
+                color: white !important;
+                border-radius: 4px;
+            }
+        }
+    }
+
+    .mat-tab-nav-bar.mat-primary:not(.mat-background-dark) {
+        .mat-tab-links {
+            gap: 10px;
+            .mat-tab-link {
+                opacity: 1; // default: .6
+                height: 42px; // default: 48px;
+                border-radius: 4px;
+            }
+
+            .mat-tab-link:focus {
+                border-radius: 4px;
+            }
+
+            .mat-tab-link:not(.mat-tab-label-active):hover {
+                background-color: rgba(0, 0, 0, 0.09) !important;
+            }
+
+            .mat-tab-label-active {
+                background-color: map-get($colors, mat-tab-links-label-active) !important;
+                color: map-get($colors, mat-tab-links-label-color-active) !important;
+                border-radius: 4px;
+            }
+        }
+    }
+
+    .mat-tab-group.mat-background-primary .mat-tab-header,
+    .mat-tab-group.mat-background-primary .mat-tab-links,
+    .mat-tab-group.mat-background-primary .mat-tab-header-pagination,
+    .mat-tab-nav-bar.mat-background-primary .mat-tab-header,
+    .mat-tab-nav-bar.mat-background-primary .mat-tab-links,
+    .mat-tab-nav-bar.mat-background-primary .mat-tab-header-pagination {
+        background-color: transparent !important;
+    }
+}

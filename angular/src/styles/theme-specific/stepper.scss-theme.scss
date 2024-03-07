@@ -1,0 +1,24 @@
+@import "~@angular/material/theming";
+
+@mixin dtm-stepper-theme($theme) {
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    $colors: map-get($theme, colors);
+    $elements: map-get($theme, elements);
+
+    .mat-stepper-vertical {
+        background: map-get($elements, table-bg);
+        border-radius: 10px !important;
+    }
+
+    .mat-stepper-horizontal {
+        background: map-get($elements, table-bg);
+        border-radius: 10px;
+        padding:25px;
+    }
+
+    .mat-step-header {
+        border-radius: 10px;
+    }
+
+}

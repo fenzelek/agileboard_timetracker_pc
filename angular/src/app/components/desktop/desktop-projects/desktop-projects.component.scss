@@ -1,0 +1,32 @@
+.project-box {
+  height: inherit;
+  position: relative;
+
+  fa-icon {
+    color: #1a8c7f;
+  }
+
+  ::ng-deep {
+    .mat-list-base {
+      padding-top: 0 !important;
+    }
+  }
+
+  mat-nav-list {
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+  }
+}
+
+.info-wrap {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+
+  .message {
+    margin-top: 20px;
+  }
+}

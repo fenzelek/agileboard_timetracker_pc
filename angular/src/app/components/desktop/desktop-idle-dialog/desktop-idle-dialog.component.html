@@ -1,0 +1,17 @@
+<div *ngIf="isOpen$ | async" class="dialog-wrap">
+
+  <div class="dialog">
+    <h2 class="header">{{ 'tt.idle-dialog.title' | translate }}</h2>
+
+    <div class="body">
+      {{ 'tt.idle-dialog.idle-for' | translate }}: 
+      {{ idleTime }}
+    </div>
+
+    <div class="buttons">
+      <button mat-stroked-button (click)="removeIdleTime()">{{ 'tt.idle-dialog.remove' | translate }}</button>
+      <button mat-stroked-button (click)="keepIdleTime()">{{ 'tt.idle-dialog.keep' | translate }}</button>
+    </div>
+  </div>
+
+</div>

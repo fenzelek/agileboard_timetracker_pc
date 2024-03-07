@@ -1,0 +1,146 @@
+@import 'palette';
+
+$dtm-accent: mat-palette($mat-orange, 800, 500, 900);
+$dtm-warn: mat-palette($mat-red, 600);
+
+$dtm-theme: mat-light-theme($dtm-primary, $dtm-accent, $dtm-warn);
+
+// Define Foreground colors
+$dtm-foreground: map-get($dtm-theme, foreground);
+$dtm-foreground: map_merge(
+  $dtm-foreground,
+  (
+    // base:            black,
+    divider: rgba(black, 0.1),
+    // dividers:        rgba(black, 0.12),
+    // disabled:        rgba(black, 0.38),
+    // disabled-button: rgba(black, 0.38),
+    // disabled-text:   rgba(black, 0.38),
+    // hint-text:       rgba(black, 0.38),
+    // secondary-text:  rgba(black, 0.54),
+    // icon:            rgba(black, 0.54),
+    // icons:           rgba(black, 0.54),
+    text: rgba(black, 0.7)
+  )
+);
+$dtm-theme: map-merge(
+  $dtm-theme,
+  (
+    foreground: $dtm-foreground,
+  )
+);
+
+// Define Background colors
+$dtm-background: map-get($dtm-theme, background);
+$dtm-background: map-merge(
+  $dtm-background,
+  (
+    status-bar: #f5f5f5,
+    app-bar: white,
+    background: mat-color($dtm-primary),
+    // hover: rgba(black, 0.04),
+    // card: map_get($dtm-primary, 700),
+    // dialog: map_get($dtm-primary, 500),
+    // disabled-button: rgba(map_get($dtm-primary, 300), 0.12),
+    // raised-button: map_get($dtm-primary, 900),
+    // focused-button: $light-focused,
+    // selected-button: map_get($dtm-primary, 900),
+    // selected-disabled-button: map_get($dtm-primary, 700),
+    // disabled-button-toggle: black,
+    // unselected-chip: map_get($dtm-primary, 700),
+    // disabled-list-option: black,
+  )
+);
+$dtm-theme: map-merge(
+  $dtm-theme,
+  (
+    background: $dtm-background,
+  )
+);
+
+// Define theme colors
+$dtm-theme: map-merge(
+  $dtm-theme,
+  (
+    colors: (
+      font: #1b1b1b,
+      white: #fff,
+      primary: #42b0a4,
+      primary-dark: #338d83,
+      primary-light: #e2fff9,
+      danger: #fe7373,
+      danger-dark: #e90000,
+      danger-light: #ffe4e4,
+      warning: #ffde87,
+      warning-dark: #b16000,
+      warning-light: #fff6de,
+      success: #5ce897,
+      success-dark: #009e36,
+      success-light: #deffec,
+      grey: #bdbdbd,
+      grey-dark: #747474,
+      grey-light: #eeeeee,
+      mat-tab-label-active: white,
+      mat-tab-label-hover: #eeeeee,
+      mat-tab-label-color-hover: rgba(0, 0, 0, 0.7),
+      mat-tab-group-label-active: rgba(0, 0, 0, 0.05),
+      mat-tab-list-label-active: rgba(0, 0, 0, 0.2),
+      mat-tab-links-label-active: white,
+      mat-tab-links-label-color-active: black,
+
+      // dark
+      mat-tab-label-dark: white,
+      mat-tab-links-dark-label-active: #42b0a4,
+    ),
+  )
+);
+
+// Define theme elements variables
+$dtm-theme: map-merge(
+  $dtm-theme,
+  (
+    elements: (
+      page-header-bg: #42b0a4,
+      page-bg: #fff,
+      card-bg: #fff,
+      card-select-company-contractor-bg: #dadada,
+      card-select-company-contractor-hover-bg: rgb(163, 163, 163),
+      sidebar-bg: #272727,
+      mobile-carousel-button-bg: #d7d7d7,
+      mobile-carousel-button-text: #272727,
+      mobile-carousel-button-icon: #272727,
+      mobile-carousel-button-border: none,
+      sidebar-item-hover: #bbbbbb,
+      sidebar-item-active-hover: #3e9187,
+      sidebar-piano-border-color: #2c3338,
+      sidebar-piano-hover-bg: #181a1f,
+      sidebar-piano-hover-border-color: #d6cece,
+      sidebar-piano-active-bg: #4b4b4b,
+      sidebar-piano-active-border-color: #1d1d1d,
+      sidebar-piano-default-bg: #2d323e,
+      toolbar-bg: #272727,
+      toolbar-user-button-bg: #1b1b1b,
+      toolbar-user-dropdown-bg: white,
+      toolbar-user-button-hover-bg: rgba(0, 0, 0, 0.1),
+      select-panel-bg: #ffffff,
+      select-panel-option-active-bg: #f7f7f7,
+      select-panel-option-active-text: black,
+      table-bg: white,
+      table-bg-hover: rgb(230, 224, 224),
+      collapse-piano-bg: #ffffff,
+      collapse-piano-bg-hover: #e7e7e7,
+      collapse-piano-border: rgba(0, 0, 0, 0.2),
+      menu-item-hover: rgba(0, 0, 0, 0.04),
+      menu-item-active: rgba(0, 0, 0, 0.1),
+      nav-list: #f9f9f9,
+      cover: rgba(255, 255, 255, 0.4),
+      mobile-entity-top-box: #42B0A4,
+      input-bg: #fff,
+      input-border: #e5e5e5,
+      popup-input-bg: #fff,
+      input-color: rgba(0, 0, 0, 0.75),
+      input-placeholder-color: rgba(0, 0, 0, 0.6),
+      menu-text-invert: #fff,
+    ),
+  )
+);

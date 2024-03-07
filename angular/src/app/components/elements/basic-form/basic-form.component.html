@@ -1,0 +1,35 @@
+<section class="container">
+  <form (ngSubmit)="onSubmit()" class="auth__form">
+
+    <div class="auth__box">
+
+      <!-- Title -->
+      <div class="auth__box__header">
+        <img src="assets/logo.png" routerLink="/" class="auth__box__header--logo">
+        <span class="title">
+          TimeTracker
+          <span *ngIf="!production" class="dev">DEV</span>
+        </span>
+      </div>
+
+      <mat-card class="auth__box__card">
+
+        <!-- Inputs -->
+        <mat-card-content class="auth__box__card--content">
+          <ng-content></ng-content>
+        </mat-card-content>
+
+        <!-- Actions -->
+        <mat-card-actions class="auth__box__card--actions">
+          <ng-content select="#actions"></ng-content>
+        </mat-card-actions>
+
+      </mat-card>
+
+    </div>
+
+    <footer class="auth__footer mt-8 fg-white">
+      Copyright © {{ year }} DevPark sp. z o.o. | {{ version }}
+    </footer>
+  </form>
+</section>

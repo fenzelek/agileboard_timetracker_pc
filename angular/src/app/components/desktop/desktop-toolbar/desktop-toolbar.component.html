@@ -1,0 +1,116 @@
+<div class="toolbar" [style.position]="'inherit'">
+  <mat-toolbar>
+
+    <div class="toolbar-title">
+      <ng-container *ngIf="showLogo">
+        <img class="toolbar-title-logo" src="assets/logo.png" alt="">
+        {{ 'tt.title.short' | translate }}
+        <span *ngIf="!production" class="dev">DEV</span>
+      </ng-container>
+    </div>
+
+    <!-- Menu Buttons -->
+    <div class="buttons flex flex-row justify-content-center align-items-center">
+
+      <!-- Menu if authenticated -->
+      <ng-container *ngIf="(isAuthenticated$ | async)">
+
+        <!-- sync menu -->
+        <button class="user-button unitree-button__none" mat-flat-button [matMenuTriggerFor]="syncMenu">
+          <mat-icon *ngIf="!(isOffline$ | async) ">wifi</mat-icon>
+          <mat-icon *ngIf="(isOffline$ | async) ">wifi_off</mat-icon>
+        </button>
+
+        <mat-menu #syncMenu>
+          <div #syncMenuWrap class="sync-menu" (click)="stopPropagation($event)">
+
+            <!-- online/offline -->
+            <mat-checkbox class="item" (change)="timeStore.setOffline($event.checked)" [ngModel]="isOffline$ | async">
+              <mat-icon class="icon offline">wifi_off</mat-icon>
+              {{ 'tt.menu.offline-mode' | translate }}
+            </mat-checkbox>
+
+            <!-- synchronize -->
+            <button class="btn item option-button" mat-stroked-button color="" (click)="syncTime()" *ngIf="!(isSynchronized$ | async)" [disabled]="synchronizing$ | async">
+              <mat-icon *ngIf="!(synchronizing$ | async)" class="sync icon">sync_alt</mat-icon>
+              <fa-icon *ngIf="synchronizing$ | async" icon="circle-notch" [spin]="true" class="icon synchronizing"></fa-icon>
+              {{ 'tt.sync.frames' | translate }}
+            </button>
+            
+            <!-- unsynchronized -->
+            <button class="btn item option-button" mat-stroked-button routerLink="/unsynchronized" *ngIf="!(isSynchronized$ | async)">
+              <mat-icon class="sync icon">hourglass_empty</mat-icon>
+              {{ 'tt.sync.unsynchronized' | translate }}
+            </button>
+
+            <mat-divider style="margin-top: 12px; margin-bottom: 8px;"></mat-divider>
+
+            <!-- last sync -->
+            <div class="item last-sync">
+              <div>{{ 'tt.sync.last-sync' | translate }}</div>
+              <div *ngIf="lastSync">{{ lastSync | date: 'dd-MM-yyyy HH:mm:ss' }}</div>
+              <div *ngIf="!lastSync" style="text-align: center">-</div>
+            </div>
+
+          </div>
+        </mat-menu>
+
+        <!-- main menu -->
+        <button class="user-button unitree-button__none fg-white" mat-flat-button
+                [matMenuTriggerFor]="toolbarUserMenu">
+          <fa-icon *ngIf="!currentUser || !currentUser.avatarUrl" icon="user" size="lg" class="ml-1"></fa-icon>
+          <img class="avatar" *ngIf="currentUser && currentUser.avatarUrl" [src]="currentUser.avatarUrl" transform="grow-12" />
+          <span *ngIf="currentUser" class="ml-2 name">{{ getUserName() }}</span>
+        </button>
+
+        <mat-menu class="user-dropdown" #toolbarUserMenu="matMenu">
+          <!-- settings -->
+          <button mat-menu-item routerLink="/settings">
+            <div class="user-dropdown-menu-item">
+              <fa-icon icon="cogs" class="mr-2" style="font-size: 16px"></fa-icon>
+              <span class="user-dropdown-menu-item-text"> {{ 'tt.menu.settings' | translate }}</span>
+            </div>
+          </button>
+          <!-- registered time -->
+          <button *ngIf="selectedCompany$ | async" mat-menu-item (click)="openRegisteredTimes()">
+            <div class="user-dropdown-menu-item">
+              <mat-icon class="mr-2" style="margin-left: -3px">history</mat-icon>
+              <span class="user-dropdown-menu-item-text"> {{ 'tt.menu.registered_time' | translate }}</span>
+            </div>
+          </button>
+          <!-- select company -->
+          <button mat-menu-item routerLink="/company/select">
+            <div class="user-dropdown-menu-item">
+              <app-custom-svg class="mr-2" stroke="currentColor" fill="none" svg="office-building"></app-custom-svg>
+              <span class="user-dropdown-menu-item-text"> {{ 'tt.menu.select_company' | translate }}</span>
+            </div>
+          </button>
+          <!-- logout -->
+          <button mat-menu-item (click)="onLogoutClick()">
+            <div class="user-dropdown-menu-item">
+              <app-custom-svg class="mr-2" stroke="currentColor" fill="none" svg="logout"></app-custom-svg>
+              <span class="user-dropdown-menu-item-text">{{ 'tt.menu.logout' | translate }}</span>
+            </div>
+          </button>
+        </mat-menu>
+      </ng-container>
+
+      <!-- Menu if not authenticated -->
+      <ng-container *ngIf="!(isAuthenticated$ | async)">
+
+        <!-- Language -->
+        <mat-select class="language-button fg-white unitree-button__none" *ngIf="language$ | async as language" [ngModel]="language"
+                    (selectionChange)="onLanguageSelect($event)">
+          <mat-option *ngFor="let lang of languages" [value]="lang">
+            <span class="language-select-box">
+              <img [src]="'assets/flags/' + lang.toLowerCase() + '.png'" [alt]="'/assets/flags/' + lang.toLowerCase() + '.png'">
+              {{ lang.toUpperCase() }}
+            </span>
+          </mat-option>
+        </mat-select>
+
+      </ng-container>
+
+    </div>
+  </mat-toolbar>
+</div>

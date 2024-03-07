@@ -1,0 +1,265 @@
+{
+  "tasks_2": {
+    "data": [
+      {
+        "id": 2279,
+        "project_id": 18,
+        "sprint_id": 209,
+        "sprint_name": null,
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "timetracking - OAuth",
+        "title": "DEVOPS-52",
+        "type_id": 2,
+        "assigned_id": 5,
+        "reporter_id": 5,
+        "description": "<p>Trzeba by zainstalowac OAuth Extrension w wersji 1.0 dla php.<\/p>",
+        "estimate_time": 600,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 17,
+        "hidden": 0,
+        "created_at": "2018-02-28 07:01:05",
+        "updated_at": "2018-03-01 06:44:07",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": []
+        },
+        "assigned_user": {
+          "data": {
+            "id": 5,
+            "email": "przemyslaw.l@devpark.pl",
+            "first_name": "Przemek",
+            "last_name": "\u0141api\u0144ski",
+            "avatar": "1529502800_5.jpg",
+            "activated": true,
+            "deleted": false
+          }
+        }
+      },
+      {
+        "id": 2269,
+        "project_id": 18,
+        "sprint_id": 209,
+        "sprint_name": null,
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "tocaa - dev server",
+        "title": "DEVOPS-50",
+        "type_id": 2,
+        "assigned_id": null,
+        "reporter_id": 19,
+        "description": "<p>Prosz\u0119 o serwer dev na dockerze (u nas), informacje w za\u0142\u0105czniku.<\/p>",
+        "estimate_time": 1800,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 26,
+        "hidden": 0,
+        "created_at": "2018-02-26 15:18:23",
+        "updated_at": "2018-03-01 06:44:07",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": []
+        },
+        "assigned_user": {
+          "data": null
+        }
+      },
+      {
+        "id": 2365,
+        "project_id": 18,
+        "sprint_id": 235,
+        "sprint_name": null,
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "Https dla tocaa dev i front",
+        "title": "DEVOPS-57",
+        "type_id": 2,
+        "assigned_id": 13,
+        "reporter_id": 19,
+        "description": "<p>Wdro\u017cenie Let&rsquo;s Encrypta dla domen: http:\/\/tocaa.devpark.com.pl\/ i http:\/\/tocaa-api.devpark.com.pl\/<\/p>",
+        "estimate_time": 2700,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 27,
+        "hidden": 0,
+        "created_at": "2018-03-07 11:39:26",
+        "updated_at": "2018-03-08 07:50:42",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": []
+        },
+        "assigned_user": {
+          "data": {
+            "id": 13,
+            "email": "lukasz.k@devpark.pl",
+            "first_name": "\u0141ukasz",
+            "last_name": "Kr\u0119giel",
+            "avatar": "",
+            "activated": true,
+            "deleted": false
+          }
+        }
+      },
+      {
+        "id": 2361,
+        "project_id": 18,
+        "sprint_id": 235,
+        "sprint_name": null,
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "Zmiana wersji elasticsearch",
+        "title": "DEVOPS-56",
+        "type_id": 2,
+        "assigned_id": 13,
+        "reporter_id": 19,
+        "description": "<p>z: {<br \/>\n&nbsp; &quot;name&quot; : &quot;node-1&quot;,<br \/>\n&nbsp; &quot;cluster_name&quot; : &quot;elasticsearch&quot;,<br \/>\n&nbsp; &quot;cluster_uuid&quot; : &quot;e3zb_dKgR5Cm7C3XgKaE2g&quot;,<br \/>\n&nbsp; &quot;version&quot; : {<br \/>\n&nbsp; &nbsp; &quot;number&quot; : &quot;5.6.7&quot;,<br \/>\n&nbsp; &nbsp; &quot;build_hash&quot; : &quot;4669214&quot;,<br \/>\n&nbsp; &nbsp; &quot;build_date&quot; : &quot;2018-01-25T21:14:50.776Z&quot;,<br \/>\n&nbsp; &nbsp; &quot;build_snapshot&quot; : false,<br \/>\n&nbsp; &nbsp; &quot;lucene_version&quot; : &quot;6.6.1&quot;<br \/>\n&nbsp; },<br \/>\n&nbsp; &quot;tagline&quot; : &quot;You Know, for Search&quot;<br \/>\n}<br \/>\n<br \/>\nna:<br \/>\n<br \/>\n{<br \/>\n&nbsp; &quot;name&quot; : &quot;Jens Meilleur Slap Shot&quot;,<br \/>\n&nbsp; &quot;cluster_name&quot; : &quot;elasticsearch&quot;,<br \/>\n&nbsp; &quot;version&quot; : {<br \/>\n&nbsp; &nbsp; &quot;number&quot; : &quot;2.3.1&quot;,<br \/>\n&nbsp; &nbsp; &quot;build_hash&quot; : &quot;bd980929010aef404e7cb0843e61d0665269fc39&quot;,<br \/>\n&nbsp; &nbsp; &quot;build_timestamp&quot; : &quot;2016-04-04T12:25:05Z&quot;,<br \/>\n&nbsp; &nbsp; &quot;build_snapshot&quot; : false,<br \/>\n&nbsp; &nbsp; &quot;lucene_version&quot; : &quot;5.5.0&quot;<br \/>\n&nbsp; },<br \/>\n&nbsp; &quot;tagline&quot; : &quot;You Know, for Search&quot;<br \/>\n}<\/p>",
+        "estimate_time": 1200,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 28,
+        "hidden": 0,
+        "created_at": "2018-03-07 08:53:25",
+        "updated_at": "2018-03-08 08:25:38",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": []
+        },
+        "assigned_user": {
+          "data": {
+            "id": 13,
+            "email": "lukasz.k@devpark.pl",
+            "first_name": "\u0141ukasz",
+            "last_name": "Kr\u0119giel",
+            "avatar": "",
+            "activated": true,
+            "deleted": false
+          }
+        }
+      },
+
+      {
+        "id": 11789,
+        "project_id": 18,
+        "sprint_id": 858,
+        "sprint_name": null,
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "almot - problem z deployem",
+        "title": "DEVOPS-265",
+        "type_id": 2,
+        "assigned_id": 13,
+        "reporter_id": 201,
+        "description": "<p>jenkins wywali\u0142 si\u0119 podczas deploya<br \/>\nwygl\u0105da na to jakby szuka\u0142 w repo brancha sales-module mimo \u017ce budowany jest z develop<\/p>\n\n<p><a href=\"https:\/\/ci.devpark.com.pl\/job\/optime.dev.almot\/224\/console\">https:\/\/ci.devpark.com.pl\/job\/optime.dev.almot\/224\/console<\/a><\/p>",
+        "estimate_time": 900,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 488,
+        "hidden": 0,
+        "created_at": "2020-02-19 12:22:33",
+        "updated_at": "2021-08-04 11:07:53",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": [
+            {
+              "id": 626,
+              "project_id": 18,
+              "name": "optime-ai",
+              "color": "#FFB300",
+              "priority": 10,
+              "created_at": "2019-12-03 11:54:52",
+              "updated_at": "2019-12-03 11:54:52",
+              "deleted_at": null
+            }
+          ]
+        },
+        "assigned_user": {
+          "data": {
+            "id": 13,
+            "email": "lukasz.k@devpark.pl",
+            "first_name": "\u0141ukasz",
+            "last_name": "Kr\u0119giel",
+            "avatar": "",
+            "activated": true,
+            "deleted": false
+          }
+        }
+      },
+      {
+        "id": 11277,
+        "project_id": 18,
+        "sprint_id": 858,
+        "sprint_name": null,
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "Dave",
+        "title": "DEVOPS-257",
+        "type_id": 2,
+        "assigned_id": null,
+        "reporter_id": 13,
+        "description": "<h2 class=\"subject\">soulalchemist<\/h2>",
+        "estimate_time": 3600,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 489,
+        "hidden": 0,
+        "created_at": "2020-02-06 13:43:43",
+        "updated_at": "2021-08-04 11:07:53",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": [
+            {
+              "id": 5,
+              "project_id": 18,
+              "name": "Dave (DLWT)",
+              "color": null,
+              "priority": 1,
+              "created_at": "2017-10-23 13:45:29",
+              "updated_at": "2017-10-23 13:45:29",
+              "deleted_at": null
+            }
+          ]
+        },
+        "assigned_user": {
+          "data": null
+        }
+      },
+      {
+        "id": 11341,
+        "project_id": 18,
+        "sprint_id": 858,
+        "sprint_name": null,
+        "status_id": 123,
+        "ticket_id": 0,
+        "name": "Let's encrypt na eurofinance",
+        "title": "DEVOPS-262",
+        "type_id": 2,
+        "assigned_id": null,
+        "reporter_id": 13,
+        "description": "",
+        "estimate_time": 1800,
+        "scheduled_time_start": null,
+        "scheduled_time_end": null,
+        "priority": 490,
+        "hidden": 0,
+        "created_at": "2020-02-11 13:31:17",
+        "updated_at": "2021-08-04 11:07:53",
+        "deleted_at": null,
+        "activity_permission": false,
+        "stories": {
+          "data": []
+        },
+        "assigned_user": {
+          "data": null
+        }
+      }
+    ],
+    "exec_time": 1.2055
+  }
+}

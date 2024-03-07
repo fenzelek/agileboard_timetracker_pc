@@ -1,0 +1,6 @@
+{
+  "notify.app-already-running": "App is already running",
+  "tray.open": "Open",
+  "tray.minimize": "Minimize",
+  "tray.exit": "Exit"
+}

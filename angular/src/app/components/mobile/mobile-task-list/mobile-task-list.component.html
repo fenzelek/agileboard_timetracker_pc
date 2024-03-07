@@ -1,0 +1,37 @@
+<div id="app-mobile-tasks-box">
+  <mat-nav-list *ngIf="pageData">
+    <mat-list-item *ngFor="let task of pageData" (click)="setSelected(task)"
+                   [ngClass]="{'mat-list-item-active': task.isActive}">
+      <span class="mobile-tasks-box__title">{{ task.data.title }}</span>
+      <span class="mobile-tasks-box__name">{{ task.data.name }}</span>
+      <span class="mobile-tasks-box__button">
+        <button mat-icon-button matTooltip="{{ 'info' | translate }}"
+                [matTooltipPosition]="'before'"
+                (click)="openTaskDetails($event, task)">
+        <fa-icon icon="info-circle" size="lg"></fa-icon>
+        </button>
+      </span>
+    </mat-list-item>
+  </mat-nav-list>
+
+  <!-- no data info -->
+  <div *ngIf="!loading && (!pageData || !pageData.length)" class="app-mobile-tasks-box__empty_state">
+    <fa-icon icon="box-open" size="2x"></fa-icon>
+    <p>
+      {{ 'tt.tasks.empty' | translate }}
+    </p>
+  </div>
+
+  <!-- pagination -->
+  <mat-paginator *ngIf="pageData && taskList.length > pageSize" [pageSizeOptions]="[5, 10, 15, 20]" showFirstLastButtons
+    [length]="allDataLength" [pageIndex]="pageIndex" [pageSize]="pageSize" (page)="changePage($event)"
+  ></mat-paginator>
+
+  <!-- loading info -->
+  <div *ngIf="loading" class="info">
+    <div class="info-wrap">
+      <app-custom-svg svg="spinner" width="50" height="50" stroke="currentColor" fill="none"></app-custom-svg>
+    </div>
+  </div>
+
+</div>

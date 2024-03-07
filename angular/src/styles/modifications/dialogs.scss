@@ -1,0 +1,48 @@
+.mat-dialog-container {
+  // border-radius: 4px !important;
+  // padding: 0 !important;
+}
+
+.default-theme .mat-dialog-title {
+  color: rgba(0, 0, 0, 0.7) !important;
+}
+
+.dark-theme .mat-dialog-title,
+.dark-v2-theme .mat-dialog-title {
+  color: white !important;
+}
+
+.mat-dialog-title {
+  font: inherit;
+  font-size: 1.5rem;
+  line-height: 1.1;
+  font-weight: 400;
+  text-transform: capitalize;
+
+  display: inline-flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  span {
+    gap: 4px;
+  }
+}
+
+.mat-dialog-content {
+  padding:0 !important;
+  margin:0 !important;
+  width: 100%;
+}
+
+.mat-dialog-actions {
+  margin-bottom: -14px !important;
+}
+
+.dialog {
+  h1 {
+    font-weight: 600;
+  }
+  .close {
+    background: transparent !important;
+  }
+}

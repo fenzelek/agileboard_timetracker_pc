@@ -1,0 +1,83 @@
+:host ::ng-deep {
+
+  .mat-form-field-flex {
+    padding-top: 0 !important;
+  }
+
+  .day {
+    padding: 8px 12px;
+    border-radius: 2px;
+
+    .index {
+      width: 16px;
+    }
+  }
+
+}
+
+::ng-deep {
+
+  .default-theme {
+
+    .day {
+      &:nth-child(even) {
+        background: #f3f3f3;
+      }
+
+      .weekend {
+        color: #b52a26;
+      }
+    }
+
+  }
+
+  .dark-theme {
+
+    .day {
+      &:nth-child(odd) {
+        .weekend {
+          color: #bd3b38;
+        }
+      }
+
+      &:nth-child(even) {
+        background: #272727;
+
+        .weekend {
+          color: #b72c29;
+        }
+      }
+    }
+
+  }
+
+}
+
+
+.close-btn {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  z-index: 1;
+}
+
+.info {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.4);
+  
+  .info-wrap {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  
+    .message {
+      margin-top: 20px;
+    }
+  }
+}

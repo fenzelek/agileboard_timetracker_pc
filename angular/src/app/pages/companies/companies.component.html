@@ -1,0 +1,33 @@
+<app-desktop-toolbar *ngIf="!isMobile"></app-desktop-toolbar>
+<app-mobile-toolbar *ngIf="isMobile"></app-mobile-toolbar>
+
+<div *ngIf="showNoInternet" class="main-content" [ngClass]="{ mobile: isMobile }">
+    <app-no-internet-connection (retry)="checkConnection()"></app-no-internet-connection>
+</div>
+
+<div *ngIf="!showNoInternet" class="main-content cards-wrap" [ngClass]="{ mobile: isMobile }">
+    <mat-card *ngFor="let company of companies" class="company-box" (click)="openDashboard(company.data.id)">
+
+        <!-- logo placeholder -->
+        <div *ngIf="!company.data.logoUrl" class="logo-placeholder">
+            <mat-icon>corporate_fare</mat-icon>
+        </div>
+
+        <!-- actual logo -->
+        <img *ngIf="company.data.logoUrl" mat-card-image src="{{ company.data.logoUrl }}" alt="{{ company.data.owner }} logo">
+
+        <h2 class="company-box__content">{{ company.data.name }}</h2>
+    </mat-card>
+    
+    <div class="info-wrap">
+        <!-- loading info -->
+        <app-custom-svg *ngIf="loading" svg="spinner" width="70" height="70" stroke="currentColor" fill="none"></app-custom-svg>
+
+        <!-- no data info -->
+        <div *ngIf="!loading && companies && !companies.length">
+            <div class="mb-2"><mat-icon style="font-size: 50px; width: 50px">widgets</mat-icon></div>
+            <div class="fs-lg">{{ 'tt.info.no-data' | translate }}</div>
+        </div>
+    </div>
+    
+</div>

@@ -1,0 +1,42 @@
+:host {
+  height: 100%;
+  flex-direction: column !important;
+
+  .paginator-box,
+  mat-paginator {
+    background: none;
+  }
+
+  section {
+    overflow-y: scroll;
+  }
+}
+
+.wrap {
+  padding-top: 100px;
+  position: relative;
+
+  &.mobile {
+    padding-top: 35px;
+  }
+}
+
+.close-btn {
+  position: absolute;
+  top: 80px;
+  right: 10px;
+}
+
+.mobile {
+  .close-btn {
+    position: fixed;
+    top: 70px;
+    right: 20px;
+    z-index: 10;
+  }
+}
+
+.unsync-task-box table {
+  width: 100%;
+  background: none;
+}

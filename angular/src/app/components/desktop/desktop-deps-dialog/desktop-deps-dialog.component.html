@@ -1,0 +1,20 @@
+<div *ngIf="isOpen" class="dialog-wrap">
+
+  <div class="dialog">
+
+    <div class="body">
+      <div>{{ 'tt.deps-dialog.info' | translate }}</div>
+
+      <div class="loader" *ngIf="loading">
+        <span>{{ 'tt.installing' | translate }}</span>
+        <app-custom-svg svg="spinner" width="15" height="15" stroke="currentColor" fill="none"></app-custom-svg>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button [disabled]="buttonsDisabled" mat-stroked-button (click)="install()">{{ 'tt.install' | translate }}</button>
+      <button [disabled]="buttonsDisabled" mat-stroked-button (click)="cancel()">{{ 'tt.cancel' | translate }}</button>
+    </div>
+  </div>
+
+</div>

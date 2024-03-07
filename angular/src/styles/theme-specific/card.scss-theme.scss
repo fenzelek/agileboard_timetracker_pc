@@ -1,0 +1,39 @@
+@import ".~@angular/material/theming";
+
+@mixin dtm-card-theme($theme) {
+  $colors: map-get($theme, colors);
+  $elements: map-get($theme, elements);
+
+  .unitree__card {
+    padding: 30px;
+    margin-bottom: 15px;
+
+    .card__title {
+      display: inline-flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+  }
+
+  .mat-card:not([class*="mat-elevation-z"]) {
+    // Adds a shadow for elevation (level, color, opacity);
+    @include mat-elevation(4, black, 0.3);
+    border-radius: 4px; // default: 4px
+  }
+
+  .mat-card {
+    background: map-get($elements, card-bg);
+    border-radius: 4px !important;
+  }
+
+  .mat-card.select-company {
+    .contractors {
+      .contractor {
+        background: map-get($elements, card-select-company-contractor-bg);
+        &:hover {
+          background: map-get($elements, card-select-company-contractor-hover-bg);
+        }
+      }
+    }
+  }
+}

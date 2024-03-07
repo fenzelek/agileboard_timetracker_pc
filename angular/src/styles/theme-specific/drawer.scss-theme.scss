@@ -1,0 +1,8 @@
+@import "~@angular/material/theming";
+
+@mixin dtm-drawer-theme($theme) {
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    $colors: map-get($theme, colors);
+    $elements: map-get($theme, elements);
+}

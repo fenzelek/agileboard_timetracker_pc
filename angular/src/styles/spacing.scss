@@ -1,0 +1,44 @@
+/*
+  Spacing helpers like:
+  .ml-X
+  .mr-X
+  .mt-X
+  .mb-X
+  .pl-X
+  .pr-X
+  .pt-X
+  .pb-X
+
+  where X is the multiplier (from 1 to 10) of 0.25rem value, eg.
+  .ml-1 -> margin-left: 0.25rem
+  .pb-6 -> padding-bottom: 1.5rem;
+*/
+
+$sides: (top, bottom, left, right); // Leave this variable alone
+
+@for $i from 0 through 20 {
+  .m-#{$i} {
+    margin: #{$i * 0.25}rem !important;
+  }
+
+  .p-#{$i} {
+    padding: #{$i * 0.25}rem !important;
+  }
+
+  @each $side in $sides {
+    .m#{str-slice($side, 0, 1)}-#{$i} {
+      margin-#{$side}: #{$i * 0.25}rem !important;
+    }
+
+    .p#{str-slice($side, 0, 1)}-#{$i} {
+      padding-#{$side}: #{$i * 0.25}rem !important;
+    }
+  }
+}
+
+// margin-{side} auto
+@each $side in $sides {
+  .m#{str-slice($side, 0, 1)}-auto {
+    margin-#{$side}: auto !important;
+  }
+}

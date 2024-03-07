@@ -1,0 +1,94 @@
+{
+  "name": "time-tracker",
+  "version": "0.8.1",
+  "description": "Electron build project",
+  "main": "src/main.js",
+  "private": true,
+  "scripts": {
+    "start": "electron-forge start",
+    "electron:serve": "electron ./src/main.js --serve",
+    "package": "electron-forge package",
+    "make": "electron-forge make",
+    "make-linux": "echo \"Building .deb file to: {project root}/electron/out/make/deb/x64\" && npx electron-forge make --platform linux --targets @electron-forge/maker-deb",
+    "make-windows": "echo \"Building .exe file to: {project root}/electron/out/make/\" && npx electron-forge make --targets @electron-forge/maker-squirrel",
+    "build-windows": "electron-builder build",
+    "make-mac": "echo \"Building .dmg file to: {project root}/electron/out/make/\" && npx electron-forge make --targets @electron-forge/maker-dmg"
+  },
+  "author": "DevPark",
+  "license": "UNLICENSED",
+  "config": {
+    "forge": {
+      "packagerConfig": {
+        "executableName": "time-tracker"
+      },
+      "makers": [
+        {
+          "name": "@electron-forge/maker-deb",
+          "config": {
+            "name": "time_tracker",
+            "options": {
+              "bin": "time-tracker",
+              "name": "TimeTracker",
+              "productName": "Time tracker",
+              "genericName": "Time tracker",
+              "description": "Time tracker for AgileBoard",
+              "productDescription": "Time tracker for AgileBoard",
+              "icon": "./src/assets/icons/png/128x128.png",
+              "categories": [
+                "Office",
+                "Utility"
+              ],
+              "maintainer": "DevPark",
+              "homepage": "https://devpark.pl/"
+            }
+          }
+        },
+        {
+          "name": "@electron-forge/maker-squirrel",
+          "config": {
+            "name": "time-tracker",
+            "description": "Time tracker for AgileBoard",
+            "icon": "./src/assets/icons/win/icon.ico"
+          }
+        }
+      ]
+    }
+  },
+  "iohook": {
+    "targets": [
+      "node-83",
+      "electron-87"
+    ],
+    "platforms": [
+      "win32",
+      "darwin",
+      "linux"
+    ],
+    "arches": [
+      "x64"
+    ]
+  },
+  "devDependencies": {
+    "@electron-forge/cli": "6.0.0-beta.61",
+    "@electron-forge/maker-deb": "6.0.0-beta.61",
+    "@electron-forge/maker-dmg": "6.0.0-beta.61",
+    "@electron-forge/maker-rpm": "6.0.0-beta.61",
+    "@electron-forge/maker-squirrel": "6.0.0-beta.61",
+    "@electron-forge/maker-zip": "6.0.0-beta.61",
+    "electron": "^12.2.3",
+    "electron-builder": "^23.6.0",
+    "electron-debug": "^3.2.0",
+    "electron-reloader": "^1.2.3"
+  },
+  "dependencies": {
+    "cross-blob": "^3.0.0",
+    "electron-squirrel-startup": "^1.0.0",
+    "iohook": "^0.9.3",
+    "keytar": "^7.7.0",
+    "mkdirp": "^1.0.4",
+    "node-blob": "^0.0.2",
+    "path": "^0.12.7",
+    "screenshot-desktop": "^1.12.6",
+    "sudo-prompt": "^9.2.1"
+  }
+}

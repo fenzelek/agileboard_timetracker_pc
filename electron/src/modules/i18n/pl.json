@@ -1,0 +1,6 @@
+{
+  "notify.app-already-running": "Aplikacja jest już uruchomiona",
+  "tray.open": "Otwórz",
+  "tray.minimize": "Zminimalizuj",
+  "tray.exit": "Zamknij"
+}

@@ -1,0 +1,23 @@
+mat-icon {
+  padding-top: 3px;
+}
+
+::ng-deep {
+  .mat-expansion-panel-body {
+    padding: 0 10px 12px 20px !important;
+    overflow: auto;
+  }
+  .mat-expansion-panel-content {
+    max-height: calc(100vh - 311px);
+    overflow: auto;
+  }
+  .mat-expansion-panel-header {
+    font-size: 12px;
+  }
+  .mat-expansion-panel-spacing {
+    margin: 7px 0 !important;
+  }
+}
+mat-expansion-panel {
+  margin-bottom: 5px;
+}

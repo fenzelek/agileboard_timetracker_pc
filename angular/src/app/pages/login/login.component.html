@@ -1,0 +1,64 @@
+<app-mobile-toolbar *ngIf="isMobile"></app-mobile-toolbar>
+<app-desktop-toolbar [showLogo]="false" *ngIf="!isMobile"></app-desktop-toolbar>
+
+<div *ngIf="showNoInternet" class="main-content" [ngClass]="{ mobile: isMobile }">
+  <app-no-internet-connection (retry)="checkConnection()"></app-no-internet-connection>
+</div>
+
+<div *ngIf="!showNoInternet" class="main-content page-login-bg" [ngClass]="{ mobile: isMobile }">
+  <app-basic-form [form]="form" (submitted)="login()">
+
+    <div [formGroup]="form" class="flex flex-column">
+      <!-- email -->
+      <mat-form-field class="rounded-sm" appearance="fill">
+        <mat-label>
+          {{ 'tt.labels.email' | translate }}
+        </mat-label>
+        <input matInput type="email" formControlName="email">
+        <mat-error *ngIf="this.form.get('email').hasError('required')">
+          {{ 'tt.errors.field_required' | translate }}
+        </mat-error>
+        <mat-error *ngIf="this.form.get('email').hasError('email')">
+          {{ 'tt.errors.email' | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- password -->
+      <mat-form-field class="rounded-sm" appearance="fill">
+        <mat-label>
+          {{ 'tt.labels.password' | translate }}
+        </mat-label>
+        <input matInput type="password" formControlName="password">
+        <mat-error *ngIf="this.form.get('email').hasError('required')">
+          {{ 'tt.errors.field_required' | translate }}
+        </mat-error>
+      </mat-form-field>
+
+      <!-- remind password -->
+      <a mat-button (click)="openForgotPasswordPage()" class="unitree-button__link">
+        {{ 'tt.auth.forgot-password' | translate }}
+      </a>
+    </div>
+
+    <div id="actions" class="flex flex-column">
+      <!-- login -->
+      <button class="unitree-button__auth login-button" mat-flat-button color="primary" type="submit"
+              [disabled]="form.invalid || (loading$ | async)">
+        <ng-container *ngIf="(loading$ | async)">
+          <app-custom-svg svg="spinner" width="35" height="35" fill="none" stroke="currentColor"></app-custom-svg>
+        </ng-container>
+        <ng-container *ngIf="!(loading$ | async)">
+          {{ 'tt.auth.login' | translate }}
+        </ng-container>
+      </button>
+
+      <!-- create account -->
+      <span class="actions__text mt-10">
+        {{ 'tt.auth.dont-have-an-account' | translate }}
+        <a class="mt-5 pointer" (click)="openRegisterPage()">{{ 'tt.auth.signup' | translate }}</a>
+      </span>
+
+    </div>
+
+  </app-basic-form>
+</div>

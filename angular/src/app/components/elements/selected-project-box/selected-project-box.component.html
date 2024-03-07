@@ -1,0 +1,7 @@
+<div class="entity-top-box mobile-entity-top-box">
+  <p class="flex align-items-end">
+    <mat-icon class="mr-1" *ngIf="showIcon">list</mat-icon>
+    <span>{{ project?.data?.name }}</span>
+  </p>
+  <p>{{ projectTime | time: 'h:mm' }}</p>
+</div>

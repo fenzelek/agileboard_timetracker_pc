@@ -1,0 +1,167 @@
+@import '~@angular/material/theming';
+
+@mixin dtm-app-theme($theme) {
+  $primary: map-get($theme, primary);
+  $accent: map-get($theme, accent);
+  $warn: map-get($theme, warn);
+  $background: map-get($theme, background);
+  $foreground: map-get($theme, foreground);
+  $elements: map-get($theme, elements);
+  $colors: map-get($theme, colors);
+
+  color: map-get($colors, font);
+
+  .error-notification-overlay {
+    color: mat-color($warn, default-contrast);
+    background-color: mat-color($warn);
+
+    .mat-button {
+      color: mat-color($warn, default-contrast);
+    }
+  }
+
+  // page backgrounds
+  .page-login-bg {
+    background: map-get($elements, page-header-bg);
+  }
+  
+  .page-bg, app-settings-page {
+    background: map-get($elements, page-bg);
+  }
+  
+  &.page-bg {
+    background: map-get($elements, page-bg);
+  }
+  .toolbar-bg {
+    background: map-get($elements, toolbar-bg);
+    color: white;
+  }
+  // 
+
+  .mobile-carousel-button-bg {
+    background: map-get($elements, mobile-carousel-button-bg);
+    border :map-get($elements, mobile-carousel-button-border);
+    color: map-get($elements, mobile-carousel-button-text);
+    path {
+      fill: map-get($elements, mobile-carousel-button-icon)
+    }
+  }
+
+  .mobile-entity-top-box {
+    background: map-get($elements, mobile-entity-top-box) !important;
+    color: white !important;
+  }
+
+
+  .cover {
+    background: map-get($elements, cover);
+  }
+
+  .mat-nav-list {
+    background: map-get($elements, nav-list);
+  }
+
+  .mat-menu-item {
+    &.active {
+      background: map-get($elements, menu-item-active) !important;
+    }
+
+    &:hover {
+      background: map-get($elements, menu-item-active) !important;
+    }
+  }
+
+
+  .dark-theme {
+
+  }
+
+  // task list
+  .topBar {
+    background: map-get($elements, nav-list);
+
+    .field {
+
+      &.field-search {
+        border-radius: 4px;
+        background: map-get($elements, input-bg);
+        border-color: map-get($elements, input-border);
+        color: map-get($elements, input-color);
+        &:focus-within {
+          border-color: map-get($elements, sidebar-item-hover);
+          color:  map-get($elements, input-color);
+          fa-icon.search {
+            color: map-get($elements, input-color) !important;
+          }
+        }
+
+        input {
+          background: transparent;
+          border: none;
+          ::placeholder {
+            color: map-get($elements, input-placeholder-color) !important;
+          }
+        }
+
+      }
+
+      fa-icon {
+        color: map-get($elements, input-placeholder-color);
+      }
+    }
+
+  }
+  .mat-select-search {
+    input {
+      background: map-get($elements, popup-input-bg);
+      border-bottom-color: map-get($elements, input-placeholder-color) !important;
+      color: map-get($elements, input-color);
+    }
+    ::placeholder {
+      color: map-get($elements, input-placeholder-color) !important;
+    }
+    fa-icon {
+      color: map-get($elements, input-placeholder-color);
+    }
+  }
+
+  .task-list-table tbody tr {
+    button:hover {
+      color: map-get($colors, primary-dark);
+    }
+  }
+  // task list end
+
+  
+  // task details end
+
+  .info-notification-overlay {
+    color: white !important;
+
+    .mat-button {
+      color: white !important;
+    }
+  }
+
+  .success-notification-overlay {
+    color: mat-color($success-colors, default-contrast);
+    background-color: mat-color($success-colors);
+
+    .mat-button {
+      color: mat-color($success-colors, default-contrast);
+    }
+  }
+
+  .warning-notification-overlay {
+    color: mat-color($warning-colors, default-contrast);
+    background-color: mat-color($warning-colors);
+
+    .mat-button {
+      color: mat-color($warning-colors, default-contrast);
+    }
+  }
+
+  .collapse-header {
+    background: map-get($elements, page-header-bg);
+  }
+}

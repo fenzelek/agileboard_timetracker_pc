@@ -1,0 +1,104 @@
+@import "~@angular/material/theming";
+
+@mixin dtm-sidenav-theme($theme) {
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    $primary: map-get($theme, primary);
+    $colors: map-get($theme, colors);
+    $elements: map-get($theme, elements);
+
+    mat-sidenav-container {
+
+        mat-toolbar {
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.06);
+
+            button {
+                &.active {
+                    color: mat-color($primary, default-contrast);
+                    background-color: mat-color($primary);
+                }
+            }
+
+            .link {
+                color: mat-color($primary, default-contrast);
+            }
+        }
+
+        .page-title {
+            color: mat-color($primary, default-contrast);
+        }
+
+        .page-content {
+            background: map-get($elements, page-bg) !important;
+        }
+
+        .mat-sidenav {
+            background: map-get($elements, sidebar-bg);
+
+            .branding {
+                color: mat-color($primary, default-contrast);
+                background: map-get($elements, sidebar-bg) !important;
+            }
+
+            .mat-list-item {
+                color: mat-color($primary, default-contrast);
+
+                &.active {
+                    color: mat-color($primary, default-contrast);
+                    background-color: mat-color($primary) !important;
+
+                    &:hover {
+                        background-color: mat-color($primary, darker) !important;
+                    }
+                }
+            }
+
+            .mat-list-item.active {
+                background: map-get($elements, page-header-bg) !important;
+            }
+
+            .mat-list-item:not(.active):hover {
+                background: map-get($elements, sidebar-item-hover) !important;
+            }
+
+            .mat-list-item.active:hover {
+                background: map-get($elements, sidebar-item-active-hover) !important;
+            }
+        }
+
+        .mat-sidenav-content {
+            .mat-toolbar {
+                background: map-get($elements, toolbar-bg) !important;
+            }
+        }
+
+        .comp-piano-wrapper {
+            border: 0;
+            &:hover {
+                background: map-get($elements, sidebar-piano-hover-bg) !important;
+            }
+
+            &.active {
+                background: map-get($elements, sidebar-piano-active-bg);
+            }
+            &.default {
+                background: map-get($elements, sidebar-piano-default-bg);
+            }
+        }
+
+        .create-comp-piano-wrapper {
+            border: 0;
+
+            &:hover {
+                background: map-get($elements, sidebar-piano-hover-bg) !important;
+            }
+
+            &.active {
+                background: map-get($elements, sidebar-piano-active-bg);
+            }
+            &.default {
+                background: map-get($elements, sidebar-piano-default-bg);
+            }
+        }
+    }
+}

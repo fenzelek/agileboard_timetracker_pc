@@ -1,0 +1,28 @@
+@import "~@angular/material/theming";
+
+@mixin dtm-table-theme($theme) {
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    $colors: map-get($theme, colors);
+    $elements: map-get($theme, elements);
+
+    .task-list-box {
+        background: map-get($elements, table-bg);
+        border-radius: 4px 4px 4px 4px;
+    }
+
+    .mat-table {
+        background: map-get($elements, table-bg);
+        border-radius: 4px 4px 4px 4px;
+        .mat-header-row {
+            border-radius: 4px 4px 0px 0px;
+        }
+        .mat-footer-row {
+            border-radius: 4px;
+        }
+    }
+
+    .mat-paginator, .paginator-box {
+        background: map-get($elements, table-bg);
+    }
+}

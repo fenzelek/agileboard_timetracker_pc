@@ -1,0 +1,40 @@
+#project-box-mobile {
+
+  fa-icon {
+    color: #1a8c7f;
+  }
+
+  ::ng-deep {
+    .mat-list-base {
+      padding-top: 0 !important;
+    }
+  }
+
+  mat-nav-list {
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+
+    mat-list-item {
+      margin: 12px;
+      width: auto;
+      font-size: 12px;
+      font-weight: 400;
+      border: 1px solid #E5E5E5;
+      box-sizing: border-box;
+      border-radius: 4px;
+    }
+  }
+}
+
+.info-wrap {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  text-align: center;
+
+  .message {
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,391 @@
+@import "variables";
+@import "reset";
+@import "typography";
+@import "rwd";
+@import "spacing";
+@import "helpers";
+@import "flex";
+
+@import "~@angular/material/theming";
+
+@import '~angular2-toaster/toaster';
+
+@include mat-core();
+
+// theme-specific
+@import "./themes/default-theme";
+@import "./themes/dark-theme";
+@import "./themes/dark-v2-theme.scss";
+
+@import "./theme-specific/reset.scss-theme.scss";
+@import "./theme-specific/colors.scss-theme";
+@import "./theme-specific/app.scss-theme.scss";
+@import "./theme-specific/card.scss-theme.scss";
+@import "./theme-specific/bottom-sheet.scss-theme.scss";
+@import "./theme-specific/tabs.scss-theme.scss";
+@import "./theme-specific/drawer.scss-theme.scss";
+@import "./theme-specific/toolbar.scss-theme.scss";
+@import "./theme-specific/sidenav.scss-theme.scss";
+@import "./theme-specific/table.scss-theme.scss";
+@import "./theme-specific/select-panel.scss-theme.scss";
+@import "./theme-specific/menu-panel.scss-theme.scss";
+@import "./theme-specific/stepper.scss-theme.scss";
+@import "./theme-specific/dialog.scss-theme.scss";
+
+// components
+@import "components/toolbar.scss";
+@import "components/dialog.scss";
+@import "components/entity-top-box.scss";
+
+
+// Attach custom-theme-styles
+@mixin custom-components-theme($theme) {
+  @include dtm-reset-theme($theme);
+  @include dtm-app-theme($theme);
+  @include dtm-colors-theme($theme);
+  @include dtm-card-theme($theme);
+  @include dtm-bottom-sheet-theme($theme);
+  @include dtm-tabs-theme($theme);
+  @include dtm-drawer-theme($theme);
+  @include dtm-toolbar-theme($theme);
+  @include dtm-sidenav-theme($theme);
+  @include dtm-table-theme($theme);
+  @include dtm-select-panel-theme($theme);
+  @include dtm-menu-panel-theme($theme);
+  @include dtm-stepper-theme($theme);
+  @include dtm-dialog-theme($theme);
+}
+
+// Attach themes
+.default-theme {
+  @include angular-material-theme($dtm-theme);
+  @include custom-components-theme($dtm-theme);
+}
+
+.dark-theme {
+  @include angular-material-theme($dtm-dark-theme);
+  @include custom-components-theme($dtm-dark-theme);
+}
+
+.dark-v2-theme {
+  @include angular-material-theme($dtm-dark-v2-theme);
+  @include custom-components-theme($dtm-dark-v2-theme);
+}
+
+// Angular Material modifications
+@import "./modifications/form";
+@import "./modifications/buttons";
+@import "./modifications/dialogs";
+
+
+body {
+  .dark-theme {
+    color: #dcdcdc;
+    
+    .mat-drawer-container {
+      color: #dcdcdc;
+    }
+  } 
+}
+
+
+.main-content {
+  width: 100%;
+  height: 100vh;
+
+  display: grid;
+  grid-template-rows: 1fr;
+  padding-top: 64px;
+
+  &.is-task-details-show {
+    grid-template-rows: auto 1px 200px;
+  }
+
+  &.mobile {
+    top: 56px;
+    height: calc(100% - 56px);
+  }
+}
+
+
+.mat-button-focus-overlay {
+  background-color: transparent !important;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: rgba($color: #000000, $alpha: 0.5);
+  border-radius: 100px;
+  width: 12px;
+}
+*::-webkit-scrollbar {
+  background-color: rgba($color: #000000, $alpha: 0.1);
+  border-radius: 100px;
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0);
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 500000s;
+}
+
+.default-theme input:-webkit-autofill,
+.default-theme input:-webkit-autofill:hover,
+.default-theme input:-webkit-autofill:focus,
+.default-theme input:-webkit-autofill:active {
+  -webkit-text-fill-color: #000 !important;
+}
+
+.dark-theme input:-webkit-autofill,
+.dark-theme input:-webkit-autofill:hover,
+.dark-theme input:-webkit-autofill:focus,
+.dark-theme input:-webkit-autofill:active {
+  -webkit-text-fill-color: #fff !important;
+}
+
+.dark-v2-theme input:-webkit-autofill,
+.dark-v2-theme input:-webkit-autofill:hover,
+.dark-v2-theme input:-webkit-autofill:focus,
+.dark-v2-theme input:-webkit-autofill:active {
+  -webkit-text-fill-color: #fff !important;
+}
+
+html,
+body {
+  min-height: 100vh !important;
+  height: 100vh !important;
+}
+
+a {
+  color: #ef6c00;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+dtm-root {
+  display: block;
+  min-height: 100vh !important;
+  height: 100vh !important;
+}
+
+dtm-app-sidenav {
+  display: block;
+  height: inherit;
+}
+
+dtm-main-board {
+  width: 100%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.no-padding-in-mat-form {
+  .mat-form-field-wrapper {
+    padding-bottom: 0 !important;
+
+    .mat-form-field-underline {
+      position: static;
+    }
+  }
+}
+
+// toolbar menu
+.default-theme .mat-menu-item .mat-icon-no-color, .default-theme .mat-menu-item-submenu-trigger::after {
+  color: inherit;
+}
+
+// left side box
+.default-theme #left-side {
+  border-right-color: #e5e5e5;
+  background: #fff;
+}
+.dark-theme #left-side {
+  border-right-color: #272727;
+  background: #1b1b1b;
+}
+.dark-theme #right-side {
+  background: #1b1b1b;
+}
+
+// timer box
+.default-theme .timer-box {
+  background: #42B0A4;
+}
+.dark-theme .timer-box {
+  background: #1d9a8c;
+}
+
+// current company
+.default-theme .entity-top-box {
+  background: #e0e0e0;
+  color: #383838;
+  border-bottom: solid 1px #e5e5e5;
+}
+.dark-theme .entity-top-box {
+  background: #131313;
+  color: #dcdcdc;
+  border-bottom: solid 1px #0c0c0c;
+}
+
+// project list
+.dark-theme .mat-list-base .mat-list-item {
+  color: #dcdcdc;
+}
+
+
+.default-theme .mat-list-item {
+  background: #f7f7f7;
+  border-bottom: solid 2px #e5e5e5;
+}
+.default-theme .mat-list-item-active {
+  background: #42B0A4 !important;
+  color: #fff !important;
+}
+
+.dark-theme .mat-list-item {
+  border-bottom: solid 1px #272727;
+}
+.dark-theme .mat-list-item-active {
+  background: #383a3b !important;
+}
+
+// footer-left
+.default-theme app-desktop-footer-left {
+  border-top-color: #e5e5e5;
+
+  .refresh-data-btn {
+    background: #efefef;
+  }
+  .version {
+    color: #909090;
+  } 
+}
+
+.dark-theme app-desktop-footer-left {
+  border-top-color: #272727;
+
+  .refresh-data-btn {
+    background: #383a3b;
+    color: #dcdcdc;
+  }
+  .version {
+    color: #797878;
+  } 
+}
+
+.default-theme .footer-btn {
+  background: #efefef;
+}
+.dark-theme .footer-btn {
+  background: #383a3b;
+  color: #dcdcdc;
+}
+
+// task list table
+.default-theme .task-list-table tbody tr {
+  &:hover {
+    background: rgba(0, 0, 0, 0.04);
+  }
+  &.selected {
+    background: rgba(0, 0, 0, 0.1);
+  }
+}
+.dark-theme .task-list-table tbody tr {
+  &:hover {
+    background: rgba(0, 0, 0, 0.14);
+  }
+  &.selected {
+    background: rgba(27, 27, 27, 0.83);
+  }
+}
+
+// table
+.dark-theme table .mat-cell, .dark-theme table .mat-footer-cell {
+  color: #dcdcdc;
+}
+
+// task details
+.default-theme app-desktop-task-details {
+  .row {
+    border-color: #e5e5e5;
+  }
+}
+.dark-theme app-desktop-task-details {
+  .row {
+    border-color: #383a3b;
+  }
+}
+
+// main content: task-list / task details dividers
+.default-theme .task-list-wrapper {
+  border-right-color: #e5e5e5;
+}
+.dark-theme .task-list-wrapper {
+  border-right-color: #272727;
+}
+.default-theme .task-details-wrapper {
+  border-top-color: #e5e5e5;
+}
+.dark-theme .task-details-wrapper {
+  border-top-color: #272727;
+}
+
+
+ng-scrollbar {
+  --scrollbar-size: 5px !important;
+  --scrollbar-hover-size: 8px !important;
+  --scrollbar-thumb-color: rgba(0, 0, 0, 0.4) !important;
+  --scrollbar-thumb-hover-color: rgba(0, 0, 0, 0.6) !important;
+  --scrollbar-border-radius: 4px !important;
+  --scrollbar-track-color: rgba(0, 0, 0, 0.2) !important;
+  --scrollbar-viewport-margin: 20px !important;
+}
+
+/* ink bar style */
+.mat-tab-links .mat-ink-bar,
+.mat-tab-nav-bar .mat-ink-bar,
+.mat-tab-group .mat-ink-bar {
+  display: none !important;
+}
+.mat-tab-nav-bar,
+.mat-tab-header {
+  border: 0 !important;
+}
+
+.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-prefix .mat-icon,
+.mat-form-field:not(.mat-form-field-appearance-legacy) .mat-form-field-suffix .mat-icon {
+  display: flex !important;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+div.toast-container {
+  > div {
+    opacity: 1;
+    box-shadow: 0 0 12px #999999 !important;
+  }
+}
+div.toast-container > :hover {
+  cursor: default;
+}
+
+// DEV
+.dev {
+  margin-left: 5px;
+  color: #ef6c00;
+}
+
+
+.project-select-auto-me {
+  padding: 5px 15px;
+  margin-bottom: 8px;
+}

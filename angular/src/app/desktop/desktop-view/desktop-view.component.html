@@ -1,0 +1,30 @@
+<div style="height: 100%">
+
+  <div class="content-wrap">
+
+    <ng-container *ngIf="showNoInternet">
+      <app-desktop-toolbar></app-desktop-toolbar>
+      <div class="main-content">
+        <app-no-internet-connection *ngIf="showNoInternet" (retry)="checkConnection()"></app-no-internet-connection>
+      </div>
+    </ng-container>
+
+    <ng-container *ngIf="!showNoInternet">
+      <!-- main left side -->
+      <div id="left-side" class="desktop-content__list" [class.compact-mode]="electronService.currentViewMode === ViewMode.COMPACT">
+        <app-desktop-timer></app-desktop-timer>
+        <app-working-company-box></app-working-company-box>
+        <app-desktop-projects></app-desktop-projects>
+        <app-desktop-footer-left></app-desktop-footer-left>
+      </div>
+
+      <!-- right content -->
+      <div *ngIf="isNonCompact()" id="right-side">
+        <app-desktop-toolbar></app-desktop-toolbar>
+        <app-desktop-content></app-desktop-content>
+      </div>
+    </ng-container>
+
+  </div>
+
+</div>

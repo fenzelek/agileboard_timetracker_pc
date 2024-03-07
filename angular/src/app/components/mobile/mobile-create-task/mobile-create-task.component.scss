@@ -1,0 +1,13 @@
+#mobile-without-tasks-box {
+  height: 100%;
+
+  mat-form-field {
+    padding-bottom: 10px;
+  }
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+  }
+
+}

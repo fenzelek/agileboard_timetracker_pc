@@ -1,0 +1,31 @@
+{
+    "asar": true,
+    "productName": "Time Tracker",
+    "directories": {
+        "output": "release/"
+    },
+    "files": [
+        "**/*",
+        "!**/*.ts",
+        "!*.map",
+        "!package.json",
+        "!package-lock.json",
+        "app/",
+        "!out/"
+    ],
+    "win": {
+        "icon": "src/assets/icons/win/icon.ico",
+        "target": [
+            "nsis"
+        ]
+    },
+    "nsis": {
+        "oneClick": false,
+        "perMachine": true,
+        "allowElevation": true,
+        "allowToChangeInstallationDirectory": true,
+        "installerIcon": "src/assets/icons/win/icon.ico",
+        "uninstallerIcon": "src/assets/icons/win/icon.ico",
+        "deleteAppDataOnUninstall": true
+    }
+}

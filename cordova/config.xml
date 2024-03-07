@@ -1,0 +1,42 @@
+<?xml version='1.0' encoding='utf-8'?>
+<widget id="pl.devpark.timetracker" version="0.7.14"
+    xmlns="http://www.w3.org/ns/widgets"
+    xmlns:cdv="http://cordova.apache.org/ns/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+>
+
+    <name>TimeTracker</name>
+
+    <description>Time tracker for AgileBoard</description>
+
+    <author email="office@devpark.pl" href="https://devpark.pl">
+        DevPark sp. z o.o.
+    </author>
+
+    <content src="index.html" />
+
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
+
+    <access origin="*" />
+
+    <preference name="AndroidInsecureFileModeEnabled" value="true" />
+
+    <platform name="android">
+        <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application">
+            <application android:usesCleartextTraffic="true" />
+        </edit-config>
+
+        <icon src="../icons/png/36x36.png" density="ldpi" />
+        <icon src="../icons/png/48x48.png" density="mdpi" />
+        <icon src="../icons/png/72x72.png" density="hdpi" />
+        <icon src="../icons/png/96x96.png" density="xhdpi" />
+        <icon src="../icons/png/144x144.png" density="xxhdpi" />
+        <icon src="../icons/png/192x192.png" density="xxxhdpi" />
+    </platform>
+
+    <platform name="ios">
+        <icon src="../icons/png/180x180.png" width="180" height="180" />
+    </platform>
+
+</widget>

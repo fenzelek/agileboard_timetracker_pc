@@ -1,0 +1,26 @@
+<div id="project-box-mobile" class="">
+  <mat-nav-list>
+    <mat-list-item *ngFor="let project of projects"
+                   (click)="selectProject(project.data.id)"
+                   [ngClass]="{'mat-list-item-active': project.isSelected}" [routerLinkActive]="['active']">
+
+      <a matLine>{{ project.data.name }}</a>
+
+      <span>{{ times[project.data.id] | time: 'h:mm' }}</span>
+
+    </mat-list-item>
+  </mat-nav-list>
+
+    <!-- no data info -->
+  <div *ngIf="!loading && (!projects || !projects.length)" class="text-center mt-8">
+    <fa-icon icon="box-open" size="2x"></fa-icon>
+    <p>
+      {{ 'tt.info.no-data' | translate }}
+    </p>
+  </div>
+
+  <!-- loading info -->
+  <div class="info-wrap">
+    <app-custom-svg *ngIf="loading" svg="spinner" width="50" height="50" stroke="currentColor" fill="none"></app-custom-svg>
+  </div>
+</div>

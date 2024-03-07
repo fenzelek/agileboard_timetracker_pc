@@ -1,0 +1,173 @@
+@import "~@angular/material/theming";
+
+@mixin dtm-colors-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $colors: map-get($theme, colors);
+  $elements: map-get($theme, elements);
+
+  // Foreground and background helpers
+  .fg-body {
+    color: map-get($foreground, text) !important;
+  }
+  .bg-body {
+    background-color: map-get($background, background) !important;
+  }
+  .fg-white {
+    color: map-get($colors, white) !important;
+  }
+  .bg-white {
+    background-color: map-get($colors, white) !important;
+  }
+  .fg-border {
+    border-color: map-get($foreground, text) !important;
+  }
+
+  .dp-primary-bg-100 {
+    background: #44ddcb !important;
+  }
+
+  .dp-primary-bg-200 {
+    background: #34dac6 !important;
+  }
+
+  .dp-primary-bg-300 {
+    background: #27d3be !important;
+  }
+
+  .dp-primary-bg-400 {
+    background: #23c1af !important;
+  }
+
+  .dp-primary-bg-500 {
+    background: #42b0a4 !important;
+  }
+
+  .dp-primary-bg-600 {
+    background: #1d9e8f !important;
+  }
+  .dp-primary-bg-700 {
+    background: #1a8c7f !important;
+  }
+  .dp-primary-bg-800 {
+    background: #177b6f !important;
+  }
+  .dp-primary-bg-900 {
+    background: #13695f !important;
+  }
+
+  .dp-dark-bg-100 {
+    background: #585a5b !important;
+  }
+
+  .dp-dark-bg-200 {
+    background: #515355 !important;
+  }
+
+  .dp-dark-bg-300 {
+    background: #4b4d4e !important;
+  }
+
+  .dp-dark-bg-400 {
+    background: #454748 !important;
+  }
+
+  .dp-dark-bg-500 {
+    background: #3e4041 !important;
+  }
+
+  .dp-dark-bg-600 {
+    background: #383a3b !important;
+  }
+
+  .dp-dark-bg-700 {
+    background: #323334 !important;
+  }
+
+  .dp-dark-bg-800 {
+    background: #2c2d2e !important;
+  }
+
+  .dp-dark-bg-900 {
+    background: #272727 !important;
+  }
+
+  // Theme colors classes, eg. ".bg-primary-dark"
+  @each $color, $value in $colors {
+    .fg-#{"" + $color} {
+      color: $value !important;
+    }
+    .bg-#{"" + $color} {
+      background-color: $value !important;
+    }
+  }
+
+  // Checkbox color
+  .mat-checkbox-checkmark {
+    fill: map-get($elements, page-bg) !important;
+  }
+  .mat-checkbox-checkmark-path {
+    stroke: map-get($elements, page-bg) !important;
+  }
+
+  .mat-button.mat-primary,
+  .mat-icon-button.mat-primary,
+  .mat-stroked-button.mat-primary {
+    background: map-get($elements, button-primary-bg) !important;
+  }
+
+  .mat-button-toggle-group {
+    border-radius: 4px;
+  }
+
+  .mat-step-header .mat-step-icon-selected,
+  .mat-step-header .mat-step-icon-state-done,
+  .mat-step-header .mat-step-icon-state-edit,
+  .mat-button-toggle-checked {
+    background-color: #42b0a4;
+    color: white !important;
+  }
+
+  mat-button-toggle {
+    .mat-button-toggle-focus-overlay {
+      display: none !important;
+    }
+  }
+
+  .mat-icon.mat-primary {
+    color: #42b0a4 !important;
+  }
+
+  .mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-bar {
+    background-color: #23c1af !important;
+  }
+
+  .mat-slide-toggle.mat-primary.mat-checked .mat-slide-toggle-thumb {
+    background-color: #42b0a4 !important;
+  }
+
+  dtm-projects-testing-features {
+    .collapsed {
+      background: map-get($elements, collapse-piano-bg) !important;
+      border-color: map-get($elements, collapse-piano-border) !important;
+      &:hover {
+        background: map-get($elements, collapse-piano-bg-hover) !important;
+      }
+    }
+  }
+
+  .mat-flat-button.mat-primary,
+  .mat-raised-button.mat-primary,
+  .mat-fab.mat-primary,
+  .mat-mini-fab.mat-primary {
+    background-color: #42b0a4 !important;
+  }
+
+  dtm-page-header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    z-index: 200;
+    background: map-get($elements, page-header-bg) !important;
+  }
+}

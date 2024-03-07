@@ -1,0 +1,10 @@
+@import ".~@angular/material/theming";
+
+@mixin dtm-dialog-theme($theme) {
+    $colors: map-get($theme, colors);
+    $elements: map-get($theme, elements);
+
+    .mat-dialog-container {
+        background: map-get($elements, dialog-bg);
+    }
+}

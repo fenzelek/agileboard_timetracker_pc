@@ -1,0 +1,18 @@
+<!-- refresh data button -->
+<button class="footer-btn" mat-icon-button title="{{ 'tt.refresh.data' | translate }}" (click)="refreshData()">
+  <mat-icon>refresh</mat-icon>
+</button>
+
+<!-- version -->
+<div class="version">{{ version }}</div>
+
+<!-- view mode button -->
+
+<button *ngIf="isNonCompact()" (click)="changeViewMode(ViewMode.COMPACT)" class="footer-btn" mat-icon-button [title]="'tt.view-mode.compact' | translate">
+  <mat-icon>keyboard_double_arrow_left</mat-icon>
+</button>
+
+<button *ngIf="electronService.currentViewMode === ViewMode.COMPACT" (click)="changeViewMode(electronService.defaultViewMode)" class="footer-btn" mat-icon-button
+  [title]="'tt.view-mode.default' | translate">
+  <mat-icon>keyboard_double_arrow_right</mat-icon>
+</button>

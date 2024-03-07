@@ -1,0 +1,27 @@
+.default-theme #mobile-timer {
+  .entity-top-box {
+    border-bottom: solid 2px #76c6bd;
+  }
+}
+
+.entity-top-box {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 8px 16px;
+  width: 100%;
+
+  p {
+    margin: 0;
+    padding: 0;
+    font-weight: 600;
+    font-size: 15px;
+  }
+}
+
+.mobile-entity-top-box {
+  mat-icon {
+    margin-top: 1px;
+  }
+}

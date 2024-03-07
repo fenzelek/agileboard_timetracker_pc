@@ -1,0 +1,67 @@
+<div class="pl-5 pt-5 pb-5">
+
+  <div mat-dialog-title>{{ 'tt.mobile.tasks.filter' | translate }}</div>
+
+  <!-- name -->
+  <div class="field">
+    <mat-form-field class="no-padding-in-mat-form rounded-sm height-sm" appearance="fill">
+      <mat-label>
+        {{ 'tt.tasks.search.task' | translate }}
+      </mat-label>
+      <mat-icon matPrefix> <fa-icon icon="search" transform="grow-6" style="font-size: x-small;"></fa-icon></mat-icon>
+      <input matInput (input)="filter()" [(ngModel)]="filters.name">
+    </mat-form-field>
+    <button mat-icon-button (click)="clear('name')"><mat-icon>clear</mat-icon></button>
+  </div>
+
+  <!-- sprint -->
+  <div class="field">
+    <mat-form-field class="no-padding-in-mat-form rounded-sm height-sm" appearance="fill">
+      <mat-label>
+        {{ 'tt.tasks.sprint' | translate }}
+      </mat-label>
+      <mat-select [(ngModel)]="filters.sprint" (selectionChange)="filter()" >
+        <app-select-search placeholder="{{ 'tt.search' | translate }}" (search)="filterOptions($event, 'sprints')"></app-select-search>
+        <mat-option *ngFor="let sprint of sprints" [value]="sprint.id">{{ sprint.name }}</mat-option>
+        <mat-option style="display: none;" *ngIf="sprints && !sprints.length" [value]="filters.sprint">{{ getSprintFilterValueLabel() }}</mat-option>
+        <mat-option disabled *ngIf="sprints && !sprints.length">{{ 'tt.tasks.filters.no-results' | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-icon-button (click)="clear('sprint')"><mat-icon>clear</mat-icon></button>
+  </div>
+
+  <!-- assigned -->
+  <div class="field">
+    <mat-form-field class="no-padding-in-mat-form rounded-sm height-sm" appearance="fill">
+      <mat-label>
+        {{ 'tt.tasks.assigned' | translate }}
+      </mat-label>
+      <mat-select [(ngModel)]="filters.assigned" (selectionChange)="filter()">
+        <app-select-search placeholder="{{ 'tt.search' | translate }}" (search)="filterOptions($event, 'users')"></app-select-search>
+        <mat-option [value]="-1"><i>{{ 'tt.unassigned' | translate }}</i></mat-option>
+        <mat-option *ngFor="let user of users" [value]="user.user_id">
+          {{ user.user.data.first_name }} {{ user.user.data.last_name }}
+        </mat-option>
+        <mat-option style="display: none;" *ngIf="users && !users.length" [value]="filters.assigned">{{ getAssignedFilterValueLabel() }}</mat-option>
+        <mat-option disabled *ngIf="users && !users.length">{{ 'tt.tasks.filters.no-results' | translate }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-icon-button (click)="clear('assigned')"><mat-icon>clear</mat-icon></button>
+  </div>
+
+  <!-- sort -->
+  <div class="field">
+    <mat-form-field class="no-padding-in-mat-form rounded-sm height-sm" appearance="fill">
+      <mat-label>
+        {{ 'tt.sort' | translate }}
+      </mat-label>
+      <mat-select (selectionChange)="sort()" [(value)]="sortSettings" [compareWith]="compareSortSettings">
+        <mat-option *ngFor="let option of sortOptions" [value]="option">
+          {{ option.name | translate }} {{ 'tt.sort.' + option.direction | translate }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <button mat-icon-button (click)="clear('sort')"><mat-icon>clear</mat-icon></button>
+  </div>
+
+</div>

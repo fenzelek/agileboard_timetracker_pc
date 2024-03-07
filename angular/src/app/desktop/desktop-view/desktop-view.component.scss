@@ -1,0 +1,55 @@
+.content-wrap {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  overflow: hidden;
+}
+
+
+#left-side {
+  width: 350px;
+  height: 100%;
+  overflow: hidden;
+  border-right-width: 1px;
+  border-right-style: solid;
+
+  &.compact-mode {
+    width: 100%;
+    border: none;
+  }
+
+  app-desktop-projects {
+    box-sizing: border-box;
+    height: calc(100% - 361px);
+  }
+
+  app-desktop-footer-left {
+    position: relative;
+    top: -1px;
+    box-sizing: border-box;
+    height: 32px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 4px;
+    border-top-width: 1px;
+    border-top-style: solid;
+  }
+}
+
+#right-side {
+  height: 100%;
+  width: calc(100% - 350px);
+  overflow: auto;
+}
+
+
+::ng-deep {
+  #right-side {
+    .toolbar {
+      width: calc(100% - 350px);
+    }
+  }
+}

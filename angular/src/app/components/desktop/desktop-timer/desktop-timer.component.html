@@ -1,0 +1,40 @@
+<div class="timer-box">
+
+  <!-- total time -->
+  <p class="timer-box__main-time" matTooltip="{{ 'tt.timer.time.full' | translate }}">
+    <span>{{ totalTime.hours }}</span>h
+    &nbsp;
+    <span>{{ totalTime.minutes }}</span>m
+  </p>
+
+  <div class="timer-box__play-icon">
+    <!-- start/stop button -->
+    <span *ngIf="task" (click)="toggleActive()">
+      <fa-icon [icon]="task.isActive ? 'stop' : 'play'" transform="grow-6" size="sm"></fa-icon>
+    </span>
+
+    <!-- no tracking task info -->
+    <div *ngIf="!task">{{ 'tt.timer.no-task' | translate }}</div>
+
+    <!-- project -->
+    <div class="timer-box__info_box" *ngIf="task && project">
+      <p>{{ project.data.name }}</p>
+      <p>{{ 'tt.timer.current-project' | translate }}</p>
+    </div>
+  </div>
+
+  <div class="timer-box__bottom" *ngIf="task">
+    <!-- task -->
+    <div class="timer-box__info_box pointer" [matTooltip]="task.data.name" matTooltipPosition="above" (click)="openTask()">
+      <p>{{ task.data.title }}</p>
+      <p>{{ 'tt.timer.task' | translate }}</p>
+    </div>
+
+    <!-- task time -->
+    <div style="text-align: right" class="timer-box__info_box">
+      <p>{{ taskTime | time: 'h:mm:ss' }}</p>
+      <p>{{ 'tt.timer.time.task' | translate }}</p>
+    </div>
+  </div>
+
+</div>

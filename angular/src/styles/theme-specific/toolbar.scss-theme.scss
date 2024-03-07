@@ -1,0 +1,44 @@
+@import "~@angular/material/theming";
+
+@mixin dtm-toolbar-theme($theme) {
+  $foreground: map-get($theme, foreground);
+  $background: map-get($theme, background);
+  $colors: map-get($theme, colors);
+  $elements: map-get($theme, elements);
+
+  .mat-toolbar {
+    background: map-get($elements, toolbar-bg) !important;
+  }
+
+  .user-button {
+    background: map-get($elements, toolbar-user-button-bg) !important;
+    &:hover {
+      background: map-get($elements, toolbar-user-button-hover-bg);
+    }
+  }
+
+  .language-button {
+    background: map-get($elements, toolbar-user-button-bg) !important;
+    &:hover {
+      background: map-get($elements, toolbar-user-button-hover-bg);
+    }
+  }
+
+  .user-dropdown {
+    background: map-get($elements, toolbar-user-dropdown-bg) !important;
+
+    .mat-menu-content {
+      .mat-menu-item {
+        &:hover {
+          background: map-get($elements, toolbar-user-button-hover-bg) !important;
+        }
+      }
+    }
+  }
+
+  .project-status {
+    .project-circle {
+      background: map-get($elements, toolbar-user-button-bg) !important;
+    }
+  }
+}

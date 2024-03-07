@@ -1,0 +1,69 @@
+<div id="mobile-timer">
+
+    <!-- company -->
+    <app-working-company-box [isMobile]="true"></app-working-company-box>
+
+    <!-- project of active/prev active task -->
+    <div *ngIf="project" class="entity-top-box mobile-entity-top-box">
+        <p class="flex align-items-end">
+            <mat-icon class="mr-1">list</mat-icon>
+            <span>{{ project?.data?.name }}</span>
+        </p>
+        <p>{{ projectTime | time: 'h:mm' }}</p>
+    </div>
+
+    <!-- selected project -->
+    <app-selected-project-box *ngIf="!project && selectedProject" [showIcon]="true"></app-selected-project-box>
+
+    <div class="content">
+        <div class="mobile-timer-box">
+
+            <div class="top-row mb-2">
+                <!-- task number -->
+                <div class="info_box" *ngIf="task">
+                    <div>{{ task.data.title }}</div>
+                    <div>{{ 'tt.timer.task-number' | translate }}</div>
+                </div>
+
+                <!-- task details button -->
+                <button class="details-button" mat-stroked-button *ngIf="task" (click)="detailsTask()">
+                    <fa-icon icon="info-circle" size="lg"></fa-icon>
+                    <span>
+                        {{ 'tt.button.task-details' | translate }}
+                    </span>
+                </button>
+            </div>
+
+            <!-- task name -->
+            <div *ngIf="task" class="info_box text-center">
+                <div>{{ task?.data?.name }}</div>
+                <div>{{ 'tt.timer.task-name' | translate }}</div>
+            </div>
+
+            <!-- total time -->
+            <div class="main-time">
+                <div>
+                    <span>{{ totalTime.hours }}</span>h
+                    &nbsp;
+                    <span>{{ totalTime.minutes }}</span>m
+                    <p>{{ 'tt.timer.time.full' | translate }}</p>
+                </div>
+            </div>
+
+            <div class="play-icon">
+                <!-- start/stop button -->
+                <button *ngIf="task" (click)="toggleActive()">
+                    <fa-icon [icon]="task.isActive ? 'stop' : 'play'" size="3x"></fa-icon>
+                </button>
+
+                <!-- task time -->
+                <div *ngIf="task" class="info_box text-center pt-3">
+                    <div>{{ taskTime | time: 'h:mm:ss' }}</div>
+                    <div>{{ 'tt.timer.time.task' | translate }}</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

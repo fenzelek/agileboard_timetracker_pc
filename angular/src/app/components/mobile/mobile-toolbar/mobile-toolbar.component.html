@@ -1,0 +1,107 @@
+<div id="mobile-toolbar" class="toolbar-bg">
+  <div class="mobile-toolbar__title">
+    <span>{{ title | translate }}</span>
+  </div>
+  <div class="mobile-toolbar__logo">
+    <img class="toolbar-title-logo" src="assets/logo.png">
+    {{ 'tt.title.short' | translate }}
+  </div>
+
+  <!-- Menu if authenticated -->
+  <div *ngIf="(isAuthenticated$ | async)" class="mobile-toolbar__burger">
+    <span>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+        <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu" class="user-dropdown">
+        <!-- user -->
+        <div class="user flex align-items-center">
+          <fa-icon *ngIf="!currentUser || !currentUser.avatarUrl" icon="user" size="lg" class="mr-2"></fa-icon>
+          <img class="avatar mr-2" *ngIf="currentUser && currentUser.avatarUrl" [src]="currentUser.avatarUrl" />
+          <div class="name" *ngIf="currentUser">{{ getUserName() }}</div>
+        </div>
+
+        <mat-divider style="margin-top: 12px; margin-bottom: 8px;"></mat-divider>
+
+        <!-- settings -->
+        <button mat-menu-item routerLink="/settings">
+          <div class="flex align-items-center">
+            <fa-icon icon="cogs" transform="grow-6" class="mr-2" style="font-size: 13px"></fa-icon>
+            <span>{{ 'tt.menu.settings' | translate }}</span>
+          </div>
+        </button>
+
+        <!-- select company -->
+        <button mat-menu-item routerLink="/company/select">
+          <div class="flex align-items-center">
+            <app-custom-svg class="mr-1" stroke="currentColor" fill="none" svg="office-building"></app-custom-svg>
+            <span> {{ 'tt.menu.select_company' | translate }}</span>
+          </div>
+        </button>
+
+        <!-- logout -->
+        <button mat-menu-item (click)="onLogoutClick()">
+          <div class="flex align-items-center">
+            <app-custom-svg class="mr-1" stroke="currentColor" fill="none" svg="logout"></app-custom-svg>
+            <span>{{ 'tt.menu.logout' | translate }}</span>
+          </div>
+        </button>
+
+        <mat-divider style="margin-top: 8px; margin-bottom: 12px;"></mat-divider>
+
+        <!-- refresh data -->
+        <button mat-stroked-button (click)="refreshData()" style="margin: 0 16px">
+          <mat-icon>refresh</mat-icon>
+          {{ 'tt.refresh.data' | translate }}
+        </button>
+
+        <mat-divider style="margin-top: 12px; margin-bottom: 12px;"></mat-divider>
+
+        <!-- sync menu -->
+        <div #syncMenuWrap class="sync-menu" (click)="stopPropagation($event)">
+
+          <!-- online/offline -->
+          <mat-checkbox class="item" (change)="timeStore.setOffline($event.checked)" [ngModel]="isOffline$ | async">
+            <mat-icon class="icon offline">wifi_off</mat-icon>
+            {{ 'tt.menu.offline-mode' | translate }}
+          </mat-checkbox>
+
+          <!-- synchronize -->
+            <button class="btn item option-button" mat-stroked-button color="" (click)="syncTime()" *ngIf="!(isSynchronized$ | async)" [disabled]="synchronizing$ | async">
+            <mat-icon *ngIf="!(synchronizing$ | async)" class="sync icon">sync_alt</mat-icon>
+            <fa-icon *ngIf="synchronizing$ | async" icon="circle-notch" [spin]="true" class="icon synchronizing"></fa-icon>
+            {{ 'tt.sync.frames' | translate }}
+          </button>
+
+          <mat-divider style="margin-top: 12px; margin-bottom: 8px;"></mat-divider>
+
+          <!-- last sync -->
+          <div class="item last-sync">
+            <div>{{ 'tt.sync.last-sync' | translate }}</div>
+            <div *ngIf="lastSync">{{ lastSync | date: 'dd-MM-yyyy HH:mm:ss' }}</div>
+            <div *ngIf="!lastSync" style="text-align: center">-</div>
+          </div>
+
+        </div>
+
+      </mat-menu>
+    </span>
+  </div>
+
+  <!-- Menu if not authenticated -->
+  <ng-container *ngIf="!(isAuthenticated$ | async)">
+    <!-- Language -->
+    <div class="mat-toolbar">
+      <mat-select class="language-button fg-white unitree-button__none" *ngIf="language$ | async as language" [ngModel]="language"
+                  (selectionChange)="onLanguageSelect($event)">
+        <mat-option *ngFor="let lang of languages" [value]="lang">
+        <span class="language-select-box">
+          <img [src]="'assets/flags/' + lang.toLowerCase() + '.png'" [alt]="'/assets/flags/' + lang.toLowerCase() + '.png'">
+          {{ lang.toUpperCase() }}
+        </span>
+        </mat-option>
+      </mat-select>
+    </div>
+  </ng-container>
+
+</div>

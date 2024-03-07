@@ -1,0 +1,15 @@
+@import '.~@angular/material/theming';
+
+@mixin dtm-bottom-sheet-theme($theme) {
+  $accent: map-get($theme, accent);
+
+  .mat-bottom-sheet-container {
+    &.mat-accent {
+      color: mat-color($accent, default-contrast);
+      background-color: mat-color($accent);
+    }
+  }
+
+  //
+
+}

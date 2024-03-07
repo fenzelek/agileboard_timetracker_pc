@@ -1,0 +1,47 @@
+.sync-menu {
+  padding: 6px 16px;
+
+  .item {
+    margin-bottom: 8px;
+    &:nth-last-child(1) {
+      margin-bottom: 0;
+    }
+  }
+
+  .last-sync {
+    line-height: 18px;
+  }
+
+  .option-button {
+    position: relative;
+    padding-left: 45px;
+
+    .icon {
+      position: absolute;
+      left: 16px;
+      width: 24px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+
+  .icon.offline {
+    font-size: 18px;
+    width: 20px;
+    height: 20px;
+    vertical-align: middle;
+  }
+
+  .icon.synchronizing {
+    display: inline-block;
+  }
+
+  button.item {
+    // padding: 0px;
+    display: block;
+  }
+}
+
+app-desktop-toolbar .mat-toolbar-single-row {
+  padding: 0 20px;
+}

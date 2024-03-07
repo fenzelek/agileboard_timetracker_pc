@@ -1,0 +1,58 @@
+{
+  "companies": [
+    {
+      "id": 2,
+      "name": "Devpark sp. z o.o.",
+      "role": {
+        "data": {
+          "id": 4,
+          "name": "developer",
+          "default": 1
+        }
+      },
+      "vatin": "7773231047",
+      "vatin_prefix": {
+        "data": null
+      },
+      "owner": {
+        "data": {
+          "id": 3,
+          "email": "a.fenzel@devpark.pl",
+          "first_name": "Andrzej",
+          "last_name": "Fenzel",
+          "avatar": "1501079730_3.jpg",
+          "activated": true,
+          "deleted": false
+        }
+      },
+      "enabled": 1
+    },
+    {
+      "id": 112,
+      "name": "WildBirds",
+      "role": {
+        "data": {
+          "id": 1,
+          "name": "owner",
+          "default": 1
+        }
+      },
+      "vatin": "777-458-74-95",
+      "vatin_prefix": {
+        "data": null
+      },
+      "owner": {
+        "data": {
+          "id": 196,
+          "email": "igor.s@devpark.pl",
+          "first_name": "Igor",
+          "last_name": "Sowi\u0144ski",
+          "avatar": "1556007194_196.jpg",
+          "activated": true,
+          "deleted": false
+        }
+      },
+      "enabled": 1
+    }
+  ]
+}

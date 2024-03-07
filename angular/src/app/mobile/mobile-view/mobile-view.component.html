@@ -1,0 +1,44 @@
+<app-mobile-toolbar [title]="currentStep.title"></app-mobile-toolbar>
+
+<div *ngIf="showNoInternet" class="main-content mobile">
+  <app-no-internet-connection (retry)="checkConnection()"></app-no-internet-connection>
+</div>
+
+<!-- main view -->
+<div *ngIf="!showNoInternet" id="mobile-carousel" class="main-content mobile">
+
+  <div class="mobile-carousel__content">
+
+      <!-- projects -->
+      <app-mobile-projects *ngIf="currentStep.index === StepIndex.PROJECTS" (goNextStep)="onProjectSelect()"></app-mobile-projects>
+
+      <!-- tasks -->
+      <app-mobile-tasks *ngIf="currentStep.index === StepIndex.TASKS" (goNextStep)="next()"></app-mobile-tasks>
+
+      <!-- timer -->
+      <app-mobile-timer *ngIf="currentStep.index === StepIndex.TRACKING"></app-mobile-timer>
+
+      <!-- times -->
+      <app-mobile-times *ngIf="currentStep.index === StepIndex.TIMES"></app-mobile-times>
+
+  </div>
+
+  <div class="mobile-carousel__menu" [ngClass]="{ 'mobile-carousel__menu-player-state': currentStep.index === StepIndex.TRACKING }">
+    <!-- prev -->
+    <button mat-button *ngIf="prevStep"
+         class="mobile-carousel-button-bg" style="margin-right: auto"
+         (click)="prev()">
+
+      <span style="margin-left: 8px">{{ prevStep.title | translate }}</span>
+    </button>
+
+    <!-- next -->
+    <button mat-button *ngIf="nextStep"
+         class="mobile-carousel-button-bg" style="margin-left: auto"
+         (click)="next()">
+
+      <span style="margin-right: 8px">{{ nextStep.title | translate }} </span>
+    </button>
+  </div>
+
+</div>

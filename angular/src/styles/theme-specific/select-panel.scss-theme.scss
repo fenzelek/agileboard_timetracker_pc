@@ -1,0 +1,27 @@
+@import "~@angular/material/theming";
+
+@mixin dtm-select-panel-theme($theme) {
+    $foreground: map-get($theme, foreground);
+    $background: map-get($theme, background);
+    $colors: map-get($theme, colors);
+    $elements: map-get($theme, elements);
+
+    .mat-select-panel {
+        background: map-get($elements, select-panel-bg);
+        padding-left:3px;
+        padding-right: 3px;
+        .mat-option {
+            border-radius: 5px;
+            margin-top:3px;
+            margin-bottom: 3px;
+        }
+    }
+
+    .mat-primary .mat-option.mat-selected:not(.mat-option-disabled) {
+        color:map-get($elements, select-panel-option-active-text);
+    }
+
+    .mat-select-panel .mat-option.mat-selected:not(.mat-option-multiple) {
+        background: map-get($elements, select-panel-option-active-bg);
+    }
+}
