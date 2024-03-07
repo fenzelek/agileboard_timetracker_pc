@@ -17,10 +17,10 @@ The latest addition to AgileBoard's suite of features is the <b>time tracking</b
 AgileBoard is more than a project management tool; it's a companion in your journey towards agile excellence. By embracing AgileBoard, teams can harness the power of agility, collaboration, and information to drive project success and achieve their goals.
 
 #### AgileBoard tech stack:
-backend is based on Laravel framwework [backend repository](https://github.com/fenzelek/agileboard_backend.git)
-frontend: AngularJS  [frontend repository](https://github.com/fenzelek/agileboard_frontend.git)
-time tracking app: Angular electron [timetracker PC repository](https://github.com/fenzelek/agileboard_timetracker_pc.git)
-time tracking mobile app : Xamarin
+- backend is based on Laravel framwework [backend repository](https://github.com/fenzelek/agileboard_backend.git)
+- frontend: AngularJS  [frontend repository](https://github.com/fenzelek/agileboard_frontend.git)
+- time tracking app: Angular electron [timetracker PC repository](https://github.com/fenzelek/agileboard_timetracker_pc.git)
+- time tracking mobile app : Xamarin [timetracker mobile repository](https://github.com/fenzelek/agileboard_timetracker_mobile.git)
 
 ### SPONSORS
 ### **[Denkkraft](https://denkkraft.eu/)**
